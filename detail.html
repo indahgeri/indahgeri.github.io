@@ -164,6 +164,26 @@
             margin-left: auto;
             margin-right: auto;
         }
+        #music-toggle {
+            margin-top: -60px !important;
+        }
+        #music-toggle-floating {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: rgba(255,255,255,0.3) !important;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        #music-toggle-floating:hover {
+            opacity: 1;
+        }
+        #music-toggle-floating i {
+            font-size: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -192,9 +212,9 @@
     </div>
 
     <audio id="bg-music" src="./assets/the_way_you_look_at_me.webm" autoplay loop style="display:none"></audio>
-    <div class="text-center my-3" style="margin-bottom: 0.5rem;">
-        <button id="music-toggle" class="btn btn-outline-light btn-sm" style="z-index:10;position:relative; margin-top: -20px;">
-            <i id="music-icon" class="bi bi-pause-circle"></i> 
+    <div class="text-center my-3" style="margin-bottom: 0.5rem; margin-top: -60px;">
+        <button id="music-toggle-floating" class="btn btn-outline-light btn-sm">
+            <i id="music-icon" class="bi bi-pause-circle"></i>
         </button>
     </div>
 
@@ -244,7 +264,7 @@
     </script>
     <script>
         const audio = document.getElementById('bg-music');
-        const toggleBtn = document.getElementById('music-toggle');
+        const toggleBtn = document.getElementById('music-toggle-floating');
         const icon = document.getElementById('music-icon');
 
         function updateIcon() {
