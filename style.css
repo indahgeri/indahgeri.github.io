@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f7f6;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/couple.jpg') center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.countdown-item {
+  background: #d3d5cb;
+  border-radius: 10px;
+  padding: 16px 20px;
+  min-width: 80px;
+  text-align: center;
+  box-sizing: border-box
+}
+
+.countdown-item .count {
+  font-size: 2rem; /* perbaiki typo dari 2rm */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.countdown-item .count.animated {
+  color: #e29578;
+  transform: scale(1.15);
+}
+
+.countdown-item .label {
+  font-size: 1rem;
+  color: #555;
+  letter-spacing: 1px
+}
+
+.about, .gallery, .rsvp {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.about img {
+  max-width: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery-container img {
+  width: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+button {
+  background-color: #e29578;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d4745f;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  #countdown {
+    /* flex-direction: column; */ /* HAPUS atau KOMENTARI baris ini */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .countdown-item {
+    min-width: 80px;
+    padding: 10px 6px;
+  }
+
+  .countdown-item .count {
+    font-size: 1.3rem;
+  }
+
+  .countdown-item .label {
+    font-size: 0.9rem;
+  }
+
+  .about, .gallery, .rsvp {
+    padding: 24px 8px;
+  }
+
+  .gallery-container img {
+    width: 100px;
+  }
+
+  form {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .hero h2 {
+    font-size: 1rem;
+  }
+  .countdown-item {
+    min-width: 90px;
+    padding: 8px 4px;
+  }
+  .gallery-container img {
+    width: 70px;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Nama Mempelai</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <audio id="bg-music" src="assets/bg-music.mp3" autoplay loop></audio>
+    <div class="container">
+        <header>
+            <img src="assets/img/couple.jpg" alt="Foto Pasangan" class="couple-photo">
+            <h1 class="bride-groom">Nama Mempelai Pria &amp; Nama Mempelai Wanita</h1>
+            <p class="wedding-date">20 Juni 2025</p>
+        </header>
+        <section class="countdown-section">
+            <h2>Menuju Hari Bahagia</h2>
+            <div id="countdown">
+                <span id="days">00</span> hari
+                <span id="hours">00</span> jam
+                <span id="minutes">00</span> menit
+                <span id="seconds">00</span> detik
+            </div>
+        </section>
+        <section class="gallery-section">
+            <h2>Galeri Foto</h2>
+            <div class="gallery">
+                <img src="assets/img/galeri1.jpg" alt="Galeri 1">
+                <img src="assets/img/galeri2.jpg" alt="Galeri 2">
+                <!-- Tambahkan lebih banyak gambar di sini -->
+            </div>
+        </section>
+        <section class="rsvp-section">
+            <h2>Konfirmasi Kehadiran (RSVP)</h2>
+            <form id="rsvp-form">
+                <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                <select id="attendance" name="attendance" required>
+                    <option value="">Konfirmasi Kehadiran</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+                <textarea id="message" name="message" placeholder="Ucapan & Doa"></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+            <div id="rsvp-list">
+                <!-- Daftar RSVP akan muncul di sini -->
+            </div>
+        </section>
+        <footer>
+            <p>Terima kasih atas doa & restu Anda</p>
+        </footer>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
