@@ -1,8 +1,82 @@
+<!DOCTYPE html>
 <html>
   <head>
-    
+    <meta charset="UTF-8">
+    <title>Indah & Geri</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Open+Sans:400,700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Open Sans', sans-serif;
+        animation: fadeIn 2s;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        color: #2e3d49;
+        margin-bottom: 0.2em;
+        text-shadow: 0 2px 16px #ffffffa0, 0 4px 24px #43c6ac40;
+        letter-spacing: 2px;
+        animation: float 3s infinite ease-in-out alternate;
+      }
+      @keyframes float {
+        to {transform: translateY(-10px);}
+      }
+      .subtitle {
+        font-size: 1.3rem;
+        color: #2e3d4960;
+        margin-bottom: 2.5em;
+        letter-spacing: 1px;
+      }
+      .btn {
+        padding: 1em 2.5em;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(90deg, #43c6ac 40%, #f8ffae 100%);
+        color: #2e3d49;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 16px #2e3d4915;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 32px #43c6ac40;
+        background: linear-gradient(90deg, #f8ffae 0%, #43c6ac 100%);
+      }
+      .fade-out {
+        animation: fadeOut 1s forwards;
+      }
+      @keyframes fadeOut {
+        to { opacity: 0; }
+      }
+    </style>
+    <script>
+      // Redirect automatically after 3 seconds
+      setTimeout(function() {
+        document.body.classList.add('fade-out');
+        setTimeout(function(){
+          window.location.href = 'invitation.html';
+        }, 1000);
+      }, 3000);
+    </script>
   </head>
   <body>
-    Indah & Geri
+    <h1>Indah &amp; Geri</h1>
+    <div class="subtitle">Selamat datang! Klik tombol di bawah atau tunggu sebentar untuk menuju undangan spesial kami.</div>
+    <button class="btn" onclick="window.location.href='invitation.html'">Lihat Invitation</button>
   </body>
 </html>
