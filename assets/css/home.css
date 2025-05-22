@@ -125,7 +125,7 @@ body {
 @media (max-width: 576px) {
     .invitation {
         align-items: flex-start;
-        padding-top: 380px;
+        padding-top: 300px;
         height: auto;
         min-height: 100vh;
     }
