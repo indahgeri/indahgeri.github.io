@@ -91,3 +91,69 @@ body {
     color: #e29578;
     transform: scale(1.15);
 }
+
+
+.quran-quote {
+    background: rgba(30, 30, 40, 0.72);
+    border-left: 6px solid #6a11cb;
+    border-radius: 1rem;
+    font-style: italic;
+    box-shadow: 0 4px 16px rgba(106,17,203,0.12);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1.2rem;
+}
+
+.quran-quote-ref {
+    color: #fff !important;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 1px 0 #222;
+    background: rgba(30,30,40,0.55);
+    display: inline-block;
+    padding: 0.3em 1em;
+    border-radius: 0.7em;
+    margin-top: 0.5em;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 576px) {
+    .invitation {
+        align-items: flex-start;
+        padding-top: 380px;
+        height: auto;
+        min-height: 100vh;
+    }
+    .invitation-content {
+        margin-top: 80px;
+        padding: 0 10px;
+    }
+    .bride-groom,
+    .display-4,
+    .display-md-2 {
+        font-size: 2rem !important;
+    }
+    .quran-quote {
+        font-size: 1rem;
+        padding: 1rem 0.7rem;
+        border-left-width: 4px;
+    }
+    #waktu-acara {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    #countdown {
+        gap: 4px;
+    }
+    .countdown-item {
+        padding: 2px 5px;
+        font-size: 0.95rem;
+    }
+}
