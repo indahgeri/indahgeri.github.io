@@ -3,7 +3,7 @@ AOS.init();
 document.querySelector('[data-scroll="#waktu-acara"]').addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector('#waktu-acara');
-    const offset = 70;
+    const offset = -70;
     const targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
     const startY = window.pageYOffset;
     const duration = 1200;
