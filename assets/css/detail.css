@@ -1,0 +1,177 @@
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.bg-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: transform 1s cubic-bezier(.77,0,.18,1);
+    will-change: transform;
+}
+.bg-slide.next {
+    left: 100vw;
+    z-index: 0;
+}
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+.container {
+    margin-top: 10px; /* dari 50px jadi 10px, bisa juga 0 */
+    position: relative;
+    z-index: 2;
+}
+.bride-groom {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2em;
+    margin: 0 0 8px 0;
+}
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* lebih rapat */
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.countdown-item {
+    background: #d3d5cb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px;
+    text-align: center;
+    min-width: unset; /* hilangkan min-width */
+    box-sizing: border-box;
+}
+.countdown-item .count {
+    font-size: 2rem; /* perbaiki typo dari 2rm */
+    font-weight: bold;
+    color: #333;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+}
+.countdown-item .label {
+    font-size: 1rem;
+    color: #555;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.countdown-item .count.animated {
+    color: #e29578;
+    transform: scale(1.15);
+}
+
+
+@media (max-width: 576px) {
+    .container {
+        margin-top: 12px;
+    }
+    #countdown {
+        gap: 4px;
+        padding: 0 4px;
+    }
+    .countdown-item {
+        padding: 2px 4px;
+        border-radius: 7px;
+    }
+    .count {
+        font-size: 1.05rem;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+    .label {
+        font-size: 0.65rem;
+        margin-top: 1px;
+        letter-spacing: 0.2px;
+    }
+    .countdown-item .count {
+        font-size: 1.1rem;
+        margin-bottom: 1px;
+    }
+    .countdown-item .label {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+}
+.quran-quote {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #222;
+    background: rgba(255,255,255,0.4); /* lebih transparan */
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-bottom: 8px;
+    display: inline-block;
+    font-weight: 500;
+}
+.quran-quote-ref {
+    font-size: 1rem;
+    color: #444;
+    background: rgba(255,255,255,0.5);
+    border-radius: 8px;
+    padding: 6px 14px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+@media (max-width: 576px) {
+    .quran-quote {
+        font-size: 0.95rem;
+        padding: 10px 8px;
+        line-height: 1.5;
+        background: rgba(255,255,255,0.4); /* pastikan sama di mobile */
+    }
+    .quran-quote-ref {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
+}
+.quran-quote,
+.quran-quote-ref {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    white-space: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+#music-toggle {
+    margin-top: -60px !important;
+}
+#music-toggle-floating {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    background: rgba(255,255,255,0.3) !important;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+#music-toggle-floating:hover {
+    opacity: 1;
+}
+#music-toggle-floating i {
+    font-size: 2rem;
+}
