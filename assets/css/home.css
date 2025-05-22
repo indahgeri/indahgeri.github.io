@@ -1,0 +1,93 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #2e2f30;
+}
+
+.invitation {
+    background-image: url('../indah_geri/prewedding-indah-geri-6.jpg');
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.invitation::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.invitation-content {
+    position: relative;
+    z-index: 1;
+    margin-top: 350px;
+}
+.invitation-content p {
+    font-size: 1em;
+    margin: 0;
+    color: #ffffff;
+}
+
+#waktu-acara {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../indah_geri/prewedding-indah-geri-10.jpg');
+    height: 100vh;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+#music-toggle-floating {
+    display: none;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* lebih rapat */
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.countdown-item {
+    background: #d3d5cb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px;
+    text-align: center;
+    min-width: unset; /* hilangkan min-width */
+    box-sizing: border-box;
+}
+.countdown-item .count {
+    font-size: 2rem; /* perbaiki typo dari 2rm */
+    font-weight: bold;
+    color: #333;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+}
+.countdown-item .label {
+    font-size: 1rem;
+    color: #555;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.countdown-item .count.animated {
+    color: #e29578;
+    transform: scale(1.15);
+}
