@@ -124,6 +124,13 @@
             backdrop-filter: blur(3px);
             transition: box-shadow 0.3s;
             position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        .profil-card.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         .profil-card:hover {
             box-shadow: 0 12px 40px rgba(180,138,120,0.18), 0 2px 12px rgba(200,200,200,0.13);
@@ -153,12 +160,17 @@
             margin-bottom: 0;
         }
         .profil-divider {
-            font-size: 2.5em;
-            color: #e7c27d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
+          font-size: 2.5em;
+          color: #e7c27d;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 0.7s;
+        }
+        .profil-divider.show {
+          opacity: 1;
         }
         @media (max-width: 767.98px) {
           .profil-divider {
@@ -215,6 +227,98 @@
             </div>
         </div>
     </section>
+
+    <!-- Our Story -->
+    <section class="section text-center" id="our-story">
+        <div class="container">
+            <h2 class="mb-5" style="font-family:'Great Vibes',cursive;font-size:2.2em;color:#b48a78;">Cerita Kami</h2>
+            <div class="timeline mx-auto" style="max-width:600px;">
+                <div class="timeline-item mb-5" data-aos="fade-down" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <h5 class="timeline-title">Awal Bertemu</h5>
+                    <span class="timeline-date">2018</span>
+                    <p class="timeline-desc">
+                        Tidak sengaja salah masuk grup jurusan di bangku perkuliahan. Dari situ sama-sama notice karena ada kesalahan, dan akhirnya berlanjut ke chat pribadi.
+                    </p>
+                </div>
+                <div class="timeline-item mb-5" data-aos="fade-left" data-aos-offset="200" data-aos-duration="2000" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <h5 class="timeline-title">Menjalin Hubungan</h5>
+                    <span class="timeline-date">26 Oktober 2018</span>
+                    <p class="timeline-desc">
+                        Setelah mengenal dan merasa cocok satu sama lain, kami memulai menjalin hubungan dengan penuh komitmen.
+                    </p>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-offset="300" data-aos-duration="2000" data-aos-delay="600">
+                    <div class="timeline-dot"></div>
+                    <h5 class="timeline-title">Lamaran</h5>
+                    <span class="timeline-date">16 Maret 2025</span>
+                    <p class="timeline-desc">
+                        Dirasa sudah cukup lama mengenal dan memahami satu sama lain. Akhirnya kami memutuskan hubungan yang lebih serius dan melangsungkan lamaran.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+    /* Timeline Styles */
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+        border-left: 3px solid #e7c27d;
+    }
+    .timeline-item {
+        position: relative;
+        text-align: left;
+        padding-left: 28px;
+    }
+    .timeline-dot {
+        position: absolute;
+        left: -12px;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 3px solid #e7c27d;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(180,138,120,0.13);
+        z-index: 2;
+    }
+    .timeline-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #b48a78;
+        margin-bottom: 0.2em;
+        font-size: 1.2em;
+    }
+    .timeline-date {
+        display: inline-block;
+        font-size: 0.95em;
+        color: #e7c27d;
+        margin-bottom: 0.5em;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .timeline-desc {
+        font-family: 'Montserrat', sans-serif;
+        color: #3a3a3a;
+        font-size: 1em;
+        margin-bottom: 0;
+    }
+    @media (max-width: 575.98px) {
+        .timeline {
+            padding-left: 18px;
+        }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            left: -8px;
+            top: 7px;
+        }
+        .timeline-title {
+            font-size: 1em;
+        }
+    }
+    </style>
 
     <!-- Section 4: Detail Acara -->
     <section class="section text-center">
@@ -296,25 +400,37 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(TextPlugin);
+
+            gsap.from('.profil-card img', {
+                duration: 1.5,
+                rotateY: 360, opacity: 0,
+            });
+
             document.getElementById('bukaUndangan').addEventListener('click', function(event) {
                 event.preventDefault(); // cegah #pembuka di URL
                 document.getElementById('pembuka').scrollIntoView({ behavior: 'smooth' });
                 setTimeout(function() {
                     gsap.to('.salam', {
-                        duration: 2,
+                        duration: 1,
                         text: "Assalamu'alaikum Warahmatullahi Wabarakatuh",
-                        ease: "power1.inOut",
-                        delay: 1,
+                        delay: 0,
                         onComplete: function() {
                             gsap.to('.salam2', {
-                                duration: 2,
+                                duration: 1,
                                 text: "Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.",
-                                ease: "power1.inOut",
-                                delay: 1
+                                delay: 0,
+                                onComplete: function() {
+                                    document.querySelectorAll('.profil-card').forEach(function(div) {
+                                        div.classList.add('show');
+                                    });
+                                    document.querySelectorAll('.profil-divider').forEach(function(div) {
+                                        div.classList.add('show');
+                                    });
+                                }
                             });
                         }
                     });
-                }, 400);
+                }, 50);
             });
         });
     </script>
