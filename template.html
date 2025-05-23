@@ -465,6 +465,13 @@
     }
     </style>
     <script>
+        // Selalu scroll ke atas saat halaman dimuat
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            document.body.classList.add('freeze-scroll');
+        });
+
+        // (Opsional, tetap biar di-refresh juga kembali ke atas)
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
         };
