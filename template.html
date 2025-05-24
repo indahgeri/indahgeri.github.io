@@ -775,6 +775,108 @@
         }
      </style>
     
+    <!-- Kirim Hadiah -->
+     <style>
+        .kirim-hadiah {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3)), 
+                url('./assets/indah_geri/prewedding-indah-geri-3.jpg') center/cover no-repeat;
+            background-blend-mode: overlay;
+            min-height: 100vh;
+            width: 100vw;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 30px 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .kirim-hadiah h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.4em;
+            color: #b48a78;
+            margin-bottom: 1.5em;
+        }
+        .kirim-hadiah .container {
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(180,138,120,0.12), 0 1.5px 8px rgba(200,200,200,0.08);
+            max-width: auto;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .kirim-hadiah .btn {
+            background-color: #e7c27d;
+            color: #fff;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .kirim-hadiah .btn:hover {
+            background-color: #d4b06a;
+            transform: translateY(-2px);
+        }
+        .kirim-hadiah .btn:focus {
+            outline: 2px dashed #b48a78;
+            outline-offset: 4px;
+        }
+        .kirim-hadiah .form-control {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e7c27d;
+            border-radius: 12px;
+            padding: 10px 15px;
+            box-shadow: 0 2px 8px rgba(180,138,120,0.08), 0 1px 4px rgba(200,200,200,0.05);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .kirim-hadiah .form-control:focus {
+            border-color: #b48a78;
+            box-shadow: 0 0 0 2px rgba(180,138,120,0.2);
+        }
+        .kirim-hadiah .form-control::placeholder {
+            color: #b0b0b0;
+            opacity: 1;
+        }
+        .kirim-hadiah .form-control:focus::placeholder {
+            color: #b48a78;
+        }
+        .kirim-hadiah .form-check-label {
+            color: #3a3a3a;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .kirim-hadiah .form-check-input {
+            background-color: #e7c27d;
+            border-color: #e7c27d;
+            box-shadow: 0 0 0 1px rgba(180,138,120,0.2);
+        }
+        .kirim-hadiah .form-check-input:checked {
+            background-color: #b48a78;
+            border-color: #b48a78;
+        }
+        .kirim-hadiah .form-check-input:focus {
+            box-shadow: 0 0 0 2px rgba(180,138,120,0.2);
+        }
+        .kirim-hadiah .form-check-input:focus:checked {
+            box-shadow: 0 0 0 2px rgba(180,138,120,0.4);
+        }
+        .kirim-hadiah .form-check-input:focus + .form-check-label {
+            color: #b48a78;
+        }
+        .kirim-hadiah .form-check-input:focus + .form-check-label:hover {
+            color: #b48a78;
+        }
+        .kirim-hadiah .form-check-input:focus + .form-check-label:active {
+            color: #b48a78;
+        }
+     </style>
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -919,18 +1021,61 @@
     <section class="buku-tamu text-center">
         <div class="container">
             <h2 class="mb-4">Buku Tamu</h2>
-            <textarea class="form-control mb-3" rows="3" placeholder="Tulis doa atau ucapan..."></textarea>
-            <button class="btn btn-secondary">Kirim Ucapan</button>
+            <textarea class="form-control mb-3" rows="3" placeholder="Tulis doa atau ucapan..." id="bukuTamuInput"></textarea>
+            <button class="btn btn-secondary mb-4" id="kirimUcapanBtn">Kirim Ucapan</button>
+            <div id="bukuTamuHistory" class="mt-4 text-start" style="max-width:600px;margin:auto;">
+                <h5 class="mb-3" style="color:#b48a78;">Ucapan yang sudah masuk:</h5>
+                <ul class="list-group" id="bukuTamuList"></ul>
+            </div>
         </div>
+        <script>
+            // Buku Tamu: Simpan di localStorage
+            document.addEventListener("DOMContentLoaded", function() {
+                const input = document.getElementById('bukuTamuInput');
+                const btn = document.getElementById('kirimUcapanBtn');
+                const list = document.getElementById('bukuTamuList');
+                const storageKey = 'bukuTamuUcapan';
+
+                function renderList() {
+                    const ucapanArr = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                    list.innerHTML = '';
+                    if (ucapanArr.length === 0) {
+                        list.innerHTML = '<li class="list-group-item text-muted">Belum ada ucapan.</li>';
+                        return;
+                    }
+                    ucapanArr.slice().reverse().forEach((ucapan, idx) => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.innerHTML = `<span style="color:#b48a78;">${ucapan.tanggal}</span><br>${ucapan.text}`;
+                        list.appendChild(li);
+                    });
+                }
+
+                btn.addEventListener('click', function() {
+                    const text = input.value.trim();
+                    if (!text) return;
+                    const ucapanArr = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                    ucapanArr.push({
+                        text,
+                        tanggal: new Date().toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })
+                    });
+                    localStorage.setItem(storageKey, JSON.stringify(ucapanArr));
+                    input.value = '';
+                    renderList();
+                });
+
+                renderList();
+            });
+        </script>
     </section>
 
     <!-- Section 7: Amplop Digital -->
-    <section class="section text-center">
+    <section class="kirim-hadiah text-center">
         <div class="container">
-        <h2 class="mb-4">Kirim Hadiah</h2>
-        <p>Jika berkenan memberikan hadiah, bisa melalui rekening berikut:</p>
-        <p><strong>Bank BNI - 123456789 a.n. Indah & Gery</strong></p>
-        <img src="https://via.placeholder.com/150x150" alt="QR Code" class="img-fluid">
+            <h2 class="mb-4">Wedding Gift</h2>
+            <p>Tanpa mengurangi rasa hormat kami bagi tamu yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkannya melalui :</p>
+            <p><strong>Bank BNI - 123456789 a.n. Indah & Gery</strong></p>
+            <img src="https://via.placeholder.com/150x150" alt="QR Code" class="img-fluid">
         </div>
     </section>
 
