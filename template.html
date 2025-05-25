@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./assets/css/cover.css">
 
     <!-- Pembuka -->
-    <link rel="stylesheet" href="./assets/css/pembuka.css">
+    <link rel="stylesheet" href="./assets/css/pembuka.css?v=1">
     
     <!-- profil -->
     <link rel="stylesheet" href="./assets/css/profil.css">
@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="./assets/css/bukutamu.css">
     
     <!-- Kirim Hadiah -->
-    <link rel="stylesheet" href="./assets/css/hadiah.css">
+    <link rel="stylesheet" href="./assets/css/hadiah.css?v=1">
     <style>
         .section-penutup {
             background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
@@ -90,14 +90,20 @@
             height: 50px;
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px;
             font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 0 0 rgba(255, 45, 160, 0.7);
+            box-shadow: 0 0 0 0 rgba(255, 45, 160, 0.07);
             transition: box-shadow 0.3s ease;
             z-index: 9999;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .music-btn:hover {
+            opacity: 1;
         }
 
         .music-btn.playing {
@@ -143,7 +149,7 @@
     <!-- Section 3: Profil Mempelai -->
     <section id="profil" class="section text-center">
         <div class="container">
-            <h2 class="mb-4" style="font-family:'Great Vibes',cursive;font-size:2.4em;color:#b48a78;">Profil Mempelai</h2>
+            <!-- <h2 class="mb-4" style="font-family:'Great Vibes',cursive;font-size:2.4em;color:#b48a78;">Profil Mempelai</h2> -->
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-5 mb-4" data-aos="zoom-in-down" data-aos-offset="200" data-aos-duration="2000" data-aos-delay="50">
                     <div class="profil-card p-4">
@@ -172,7 +178,7 @@
     <!-- Our Story -->
     <section class="section text-center" id="our-story">
         <div class="container">
-            <h2 class="mb-5" style="font-family:'Great Vibes',cursive;font-size:2.2em;color:#b48a78;">Cerita Kami</h2>
+            <h2 class="mb-5" style="font-family:'Great Vibes',cursive;font-size:2.2em;color:#b48a78;">Our Story</h2>
             <div class="timeline mx-auto" style="max-width:600px;">
                 <div class="timeline-item mb-5" data-aos="fade-down" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="100">
                     <div class="timeline-dot"></div>
@@ -240,7 +246,7 @@
     <!-- Section 5: RSVP -->
     <section class="rsvp text-center">
         <div class="container">
-            <h2 class="mb-4">Konfirmasi Kehadiran</h2>
+            <h2 class="mb-4">RSVP</h2>
             <form class="row g-3 justify-content-center">
                 <div class="col-md-4">
                     <input type="text" class="form-control" placeholder="Nama Anda" required>
@@ -262,7 +268,7 @@
     <!-- Section 6: Buku Tamu -->
     <section class="buku-tamu text-center">
         <div class="container">
-            <h2 class="mb-4">Buku Tamu</h2>
+            <h2 class="mb-4">Ucapan & Doa Restu</h2>
             <textarea class="form-control mb-3" rows="3" placeholder="Tulis doa atau ucapan..." id="bukuTamuInput"></textarea>
             <button class="btn btn-secondary mb-4" id="kirimUcapanBtn">Kirim Ucapan</button>
             <div id="bukuTamuHistory" class="mt-4 text-start" style="max-width:600px;margin:auto;">
@@ -315,11 +321,40 @@
     <section class="kirim-hadiah text-center">
         <div class="container">
             <h2 class="mb-4">Wedding Gift</h2>
-            <p>Tanpa mengurangi rasa hormat kami bagi tamu yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkannya melalui :</p>
-            <p><strong>Bank BNI - 123456789 a.n. Indah & Gery</strong></p>
-            <img src="https://via.placeholder.com/150x150" alt="QR Code" class="img-fluid">
+            <p>Tanpa mengurangi rasa hormat, bagi tamu yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkannya melalui:</p>
+
+            <!-- Rekening Indah -->
+            <div class="bank-card mx-auto">
+                <div class="bank-name">Bank BNI</div>
+                <div class="account-number" id="rekNumberIndah">1234 5678 9012 3456</div>
+                <div class="account-name">a.n. Indah Permata Sari</div>
+                <button class="btn btn-light mt-3" onclick="copyRek('rekNumberIndah', 'notifIndah')">Salin Nomor Rekening</button>
+                <small id="notifIndah" style="display:none; color:white; margin-top:10px;">✅ Nomor rekening berhasil disalin!</small>
+            </div>
+
+            <!-- Rekening Gery -->
+            <div class="bank-card mx-auto">
+                <div class="bank-name">Bank BRI</div>
+                <div class="account-number" id="rekNumberGery">4321 5678 9012 6543</div>
+                <div class="account-name">a.n. Gery Anuggrah</div>
+                <button class="btn btn-light mt-3" onclick="copyRek('rekNumberGery', 'notifGery')">Salin Nomor Rekening</button>
+                <small id="notifGery" style="display:none; color:white; margin-top:10px;">✅ Nomor rekening berhasil disalin!</small>
+            </div>
         </div>
     </section>
+
+    <script>
+        function copyRek(rekId, notifId) {
+            const nomorRekening = document.getElementById(rekId).innerText.replace(/\s/g, '');
+            navigator.clipboard.writeText(nomorRekening).then(() => {
+                const notif = document.getElementById(notifId);
+                notif.style.display = "inline";
+                setTimeout(() => notif.style.display = "none", 3000);
+            }).catch(() => {
+                alert("Gagal menyalin nomor rekening");
+            });
+        }
+    </script>
 
     <!-- Section 8: Penutup -->
     <section class="section-penutup text-center">
@@ -330,23 +365,56 @@
         </div>
     </section>
 
-    <button id="musicButton" class="music-btn">
+    <button id="musicButton" class="music-btn" style="display:none">
         <i class="bi bi-music-note"></i>
     </button>
+    <audio id="bgMusic" src="./assets/the_way_you_look_at_me.webm" loop style="display:none"></audio>
 
-    <audio id="bgMusic" src="assets/audio/music.mp3"></audio>
+    <style>
+        .back-top-btn {
+            background-color: #ff2da0;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 90px; /* Biar tidak tumpuk dengan musicButton */
+            left: 20px;
+            font-size: 24px;
+            display: none; /* Sembunyikan awalnya */
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            box-shadow: 0 0 0 0 rgba(255, 45, 160, 0.07);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .back-top-btn:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <button id="backToTop" class="back-top-btn" title="Kembali ke atas">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
     <script>
-        const musicButton = document.getElementById('musicButton');
-        const bgMusic = document.getElementById('bgMusic');
+        const backToTop = document.getElementById("backToTop");
 
-        musicButton.addEventListener('click', () => {
-            if (bgMusic.paused) {
-            bgMusic.play();
-            musicButton.classList.add('playing');
+        // Tampilkan tombol saat scroll turun
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTop.style.display = "flex";
             } else {
-            bgMusic.pause();
-            musicButton.classList.remove('playing');
+                backToTop.style.display = "none";
             }
+        });
+
+        // Scroll ke atas saat tombol diklik
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 
@@ -403,6 +471,36 @@
                         }
                     });
                 }, 50);
+                // Play music saat undangan dibuka
+                const audio = document.getElementById('bgMusic');
+                audio.play().catch(err => {
+                    console.log("Autoplay gagal:", err);
+                });
+                musicButton.classList.add('playing');
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const musicButton = document.getElementById('musicButton');
+            const bgMusic = document.getElementById('bgMusic');
+
+            musicButton.addEventListener('click', function () {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(err => {
+                    console.log("Autoplay gagal:", err);
+                });
+                musicButton.classList.add('playing');
+            } else {
+                bgMusic.pause();
+                musicButton.classList.remove('playing');
+            }
+            });
+
+            // Jangan tampilkan tombol music sebelum undangan dibuka
+            musicButton.style.display = 'none';
+            document.getElementById('bukaUndangan').addEventListener('click', function() {
+                musicButton.style.display = 'flex';
             });
         });
     </script>
@@ -454,22 +552,22 @@
         });
     </script>
     <style>
-    /* body.freeze-scroll {
+    body.freeze-scroll {
       overflow: hidden;
       height: 100vh;
-    } */
+    }
     </style>
     <script>
         // Selalu scroll ke atas saat halaman dimuat
-        // window.addEventListener('load', function() {
-        //     window.scrollTo(0, 0);
-        //     document.body.classList.add('freeze-scroll');
-        // });
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            document.body.classList.add('freeze-scroll');
+        });
 
         // (Opsional, tetap biar di-refresh juga kembali ke atas)
-        // window.onbeforeunload = function () {
-        //     window.scrollTo(0, 0);
-        // };
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
     </script>
 </body>
 </html>
