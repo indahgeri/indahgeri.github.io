@@ -908,12 +908,13 @@
                     <div class="profil-card p-4">
                         <img src="./assets/indah_geri/prewedding-indah-1.jpg" class="profil-img mb-3" alt="Mempelai Wanita">
                         <h5 class="profil-nama mb-1">Indah Permata Sari S.Ikom</h5>
-                        <p class="profil-orangtua">Putri dari Bapak Inkarnedi & Ibu Erliwati S.pd (alm)</p>
+                        <p class="profil-orangtua">Putri dari Bapak Inkarnedi & Almh. Ibu Erliwati S.pd</p>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <span class="profil-divider">
-                        <i class="bi bi-heart-fill"></i>
+                        <!-- Ganti ikon love dengan simbol & -->
+                        <span style="font-size:1.5em;font-family:'Great Vibes', cursive;color:#e7c27d;">&amp;</span>
                     </span>
                 </div>
                 <div class="col-md-5 mb-4" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="2000" data-aos-delay="50">
@@ -1115,7 +1116,7 @@
 
             document.getElementById('bukaUndangan').addEventListener('click', function(event) {
                 event.preventDefault();
-                // document.body.classList.remove('freeze-scroll'); // Izinkan scroll
+                document.body.classList.remove('freeze-scroll'); // Izinkan scroll
                 document.getElementById('pembuka').scrollIntoView({ behavior: 'smooth' });
                 setTimeout(function() {
                     gsap.to('.salam', {
