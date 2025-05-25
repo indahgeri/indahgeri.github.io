@@ -1,0 +1,62 @@
+.profil-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(180,138,120,0.10), 0 1.5px 8px rgba(200,200,200,0.09);
+    border: 2.5px solid #e0e7ef;
+    backdrop-filter: blur(3px);
+    transition: box-shadow 0.3s;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s, transform 0.7s;
+}
+.profil-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.profil-card:hover {
+    box-shadow: 0 12px 40px rgba(180,138,120,0.18), 0 2px 12px rgba(200,200,200,0.13);
+}
+.profil-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 5px solid #e7c27d;
+    box-shadow: 0 4px 24px rgba(180,138,120,0.13);
+    background: #f8fafc;
+    margin-bottom: 16px;
+    transition: border 0.3s;
+}
+.profil-nama {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.7em;
+    color: #b48a78;
+    letter-spacing: 1px;
+}
+.profil-orangtua {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #3a3a3a;
+    margin-bottom: 0;
+}
+.profil-divider {
+    font-size: 2.5em;
+    color: #e7c27d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.7s;
+}
+.profil-divider.show {
+    opacity: 1;
+}
+@media (max-width: 767.98px) {
+    .profil-divider {
+    font-size: 2em;
+    margin: 16px 0;
+    }
+}

@@ -1,0 +1,107 @@
+.rsvp {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3)), 
+        url('https://indahgeri.github.io/assets/indah_geri/prewedding-indah-geri-1.jpg') center/cover no-repeat;
+    background-blend-mode: overlay;
+    min-height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 30px 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+.rsvp h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4em;
+    color: #b48a78;
+    margin-bottom: 1.5em;
+}
+.rsvp .container {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(180,138,120,0.12), 0 1.5px 8px rgba(200,200,200,0.08);
+    max-width: auto;
+    width: 90%;
+    margin: 0 auto;
+}
+.rsvp .btn {
+    background-color: #e7c27d;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.rsvp .btn:hover {
+    background-color: #d4b06a;
+    transform: translateY(-2px);
+}
+.rsvp .btn:focus {
+    outline: 2px dashed #b48a78;
+    outline-offset: 4px;
+}
+.rsvp .form-control {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e7c27d;
+    border-radius: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 8px rgba(180,138,120,0.08), 0 1px 4px rgba(200,200,200,0.05);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.rsvp .form-control:focus {
+    border-color: #b48a78;
+    box-shadow: 0 0 0 2px rgba(180,138,120,0.2);
+}
+.rsvp .form-control::placeholder {
+    color: #b0b0b0;
+    opacity: 1;
+}
+.rsvp .form-control:focus::placeholder {
+    color: #b48a78;
+}
+.rsvp .form-check-label {
+    color: #3a3a3a;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+.rsvp .form-check-input {
+    background-color: #e7c27d;
+    border-color: #e7c27d;
+    box-shadow: 0 0 0 1px rgba(180,138,120,0.2);
+}
+.rsvp .form-check-input:checked {
+    background-color: #b48a78;
+    border-color: #b48a78;
+}
+.rsvp .form-check-input:focus {
+    box-shadow: 0 0 0 2px rgba(180,138,120,0.2);
+}
+.rsvp .form-check-input:focus:checked {
+    box-shadow: 0 0 0 2px rgba(180,138,120,0.4);
+}
+.rsvp .form-check-input:focus:checked + .form-check-label {
+    color: #b48a78;
+}
+.rsvp .form-check-input:focus + .form-check-label {
+    color: #3a3a3a;
+}
+.rsvp .form-check-input:focus + .form-check-label:hover {
+    color: #b48a78;
+}
+.rsvp .form-check-input:focus + .form-check-label:active {
+    color: #b48a78;
+}
+.rsvp .form-check-input:focus + .form-check-label:active:hover {
+    color: #b48a78;
+}
+.rsvp .form-check-input:focus + .form-check-label:active:focus {
+    color: #b48a78;
+}

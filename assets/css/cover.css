@@ -1,0 +1,43 @@
+.cover {
+    position: relative;
+    background: url('https://indahgeri.github.io/assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;
+    height: 100vh;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 100px;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+}
+.cover h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8em;
+    margin: 0 0 8px 0;
+}
+.cover h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    margin: 0 0 8px 0;
+}
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+.cover > *:not(.bg-overlay) {
+    position: relative;
+    z-index: 2;
+}
+.section {
+    padding: 60px 15px;
+}
+.section:nth-child(even) {
+    background-color: #f8f9fa;
+}
