@@ -76,6 +76,50 @@
       -webkit-backdrop-filter: blur(10px);
       width: 100%;
     }
+
+    .minimal-card > * {
+      position: relative;
+      z-index: 3;
+    }
+
+    .minang-border {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.1;
+      pointer-events: none;
+      background-image: 
+          linear-gradient(45deg, transparent 48%, #ffd700 49%, #ffd700 51%, transparent 52%),
+          linear-gradient(-45deg, transparent 48%, #ffd700 49%, #ffd700 51%, transparent 52%);
+      background-size: 30px 30px;
+      background-position: center;
+    }
+
+    .minang-divider {
+        position: relative;
+        height: 40px;
+        margin: 2rem 0;
+        opacity: 0.2;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%23ffd700'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .minimal-card .btn,
+    .minimal-card a,
+    .minimal-card button,
+    .minimal-card input,
+    .minimal-card select,
+    .minimal-card textarea {
+      position: relative;
+      z-index: 4;
+    }
+
+    .minang-ornament-svg {
+      z-index: 2;
+      pointer-events: none;
+    }
     
     .minimal-card:hover {
       transform: translateY(-3px);
@@ -128,6 +172,14 @@
 
     input, textarea { 
       color: #fff !important; 
+    }
+
+    /* Placeholder Styles */
+    ::placeholder {
+      color: #ffd700cc !important;    /* gold, agak transparan */
+      opacity: 0.7 !important;        /* lebih transparan */
+      font-weight: 400;
+      letter-spacing: 0.5px;
     }
 
     /* Gallery Slider */
@@ -216,7 +268,7 @@
       z-index: 0;
       background: linear-gradient(
         to bottom,
-        rgba(16, 16, 16, 0.7) 0%,
+        rgba(16, 16, 16, 0.3) 0%,
         rgba(16, 16, 16, 0.5) 50%,
         rgba(16, 16, 16, 0.8) 100%
       );
@@ -228,7 +280,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;
+      background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
       opacity: 0.4;
       filter: brightness(0.8) contrast(1.1);
       border-radius: 0;
@@ -238,11 +290,12 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;
+      background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
       opacity: 0.6;
       filter: brightness(0.85) contrast(1.1);
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     /* Gallery Background */
@@ -319,6 +372,26 @@
 
       .section-title {
         font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .form-control,
+      .form-select {
+        font-size: 0.95rem;
+        padding: 0.7rem 0.9rem;
+      }
+      ::placeholder {
+        font-size: 0.95rem;
+        letter-spacing: 0.2px;
+      }
+      .btn-gold {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+      }
+      .section-title {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
       }
     }
 
@@ -523,7 +596,7 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat fixed;
+      background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
       opacity: 0.4;
       filter: brightness(0.8) contrast(1.1);
     }
@@ -845,41 +918,6 @@
         transform: rotate(180deg);
     }
 
-    .minang-border {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        opacity: 0.1;
-        background-image: 
-            linear-gradient(45deg, transparent 48%, #ffd700 49%, #ffd700 51%, transparent 52%),
-            linear-gradient(-45deg, transparent 48%, #ffd700 49%, #ffd700 51%, transparent 52%);
-        background-size: 30px 30px;
-        background-position: center;
-        mask-image: linear-gradient(to bottom, 
-            rgba(0,0,0,1) 0%,
-            rgba(0,0,0,0) 20%,
-            rgba(0,0,0,0) 80%,
-            rgba(0,0,0,1) 100%
-        );
-        -webkit-mask-image: linear-gradient(to bottom, 
-            rgba(0,0,0,1) 0%,
-            rgba(0,0,0,0) 20%,
-            rgba(0,0,0,0) 80%,
-            rgba(0,0,0,1) 100%
-        );
-    }
-
-    .minang-divider {
-        position: relative;
-        height: 40px;
-        margin: 2rem 0;
-        opacity: 0.2;
-        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%23ffd700'/%3E%3C/svg%3E");
-        background-repeat: repeat-x;
-        background-position: center;
-        background-size: contain;
-    }
-
     /* Update minimal-card with Minang pattern */
     .minimal-card {
         position: relative;
@@ -1092,6 +1130,168 @@
             box-shadow: 0 0 0 0 rgba(255, 45, 160, 0);
         }
     }
+
+    /* Cover Styles */
+    #cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #cover .title-corner {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        text-align: left;
+        z-index: 3;
+    }
+
+    #cover .title-corner p {
+        font-size: 0.6rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+        font-weight: normal;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    #cover .title-corner h1 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+        font-weight: normal;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    #cover .title-corner h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    #cover .content-wrapper {
+        transform: translateY(20%);
+        margin-top: 30vh;
+        text-align: center;
+        z-index: 3;
+        /* background: rgba(0, 0, 0, 0.4); */
+        padding: 2rem;
+        border-radius: 1rem;
+        /* backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px); */
+        width: 90%;
+        max-width: 400px;
+    }
+
+    #cover .content-wrapper .kepada {
+        margin-bottom: 1.5rem;
+        color: rgba(255,255,255,0.9);
+    }
+
+    #cover .content-wrapper .kepada p {
+        margin: 0;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    #cover .content-wrapper .nama-tamu {
+        font-size: 1.5rem;
+        color: #ffd700;
+        margin: 0.8rem 0 1.5rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .cover-bg {
+        background: linear-gradient(
+            to bottom,
+            rgba(16, 16, 16, 0.4) 0%,
+            rgba(16, 16, 16, 0.3) 50%,
+            rgba(16, 16, 16, 0.7) 100%
+        );
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+        #cover .title-corner {
+            top: 1.5rem;
+            left: 1.5rem;
+        }
+
+        #cover .title-corner p {
+            font-size: 0.5rem;
+        }
+
+        #cover .title-corner h1 {
+            font-size: 0.9rem;
+        }
+
+        #cover .title-corner h2 {
+            font-size: 2rem;
+        }
+
+        #cover .content-wrapper {
+            padding: 1.5rem;
+            max-width: 350px;
+        }
+
+        #cover .content-wrapper .nama-tamu {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #cover .title-corner {
+            top: 1rem;
+            left: 1rem;
+        }
+
+        #cover .title-corner h1 {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        #cover .title-corner h2 {
+            font-size: 2.50rem;
+        }
+
+        #cover .content-wrapper {
+            padding: 1.25rem;
+            transform: translateY(30%);
+        }
+
+        #cover .content-wrapper .kepada p {
+            font-size: 0.9rem;
+        }
+
+        #cover .content-wrapper .nama-tamu {
+            font-size: 1.2rem;
+            margin: 0.6rem 0 1.2rem;
+        }
+
+        #cover .btn-gold {
+            font-size: 0.9rem;
+            padding: 0.6rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .bg-coverfoto {
+            background-position: 40% center; /* Geser ke kiri 35% pada tampilan tablet */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .bg-coverfoto {
+            background-position: 40% center; /* Geser lebih ke kiri 30% pada tampilan mobile */
+        }
+    }
   </style>
 </head>
 <body>
@@ -1107,27 +1307,23 @@
     </svg>
 
     <!-- Section 0: Cover -->
-    <section id="cover" class="d-flex flex-column justify-content-center align-items-center vh-100 position-relative">
-        <div class="minang-border"></div>
-        <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
-            <use href="#minang-corner"/>
-        </svg>
-        <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
-            <use href="#minang-corner"/>
-        </svg>
-        <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
-            <use href="#minang-corner"/>
-        </svg>
-        <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
-            <use href="#minang-corner"/>
-        </svg>
+    <section id="cover">
         <div class="bg-coverfoto"></div>
         <div class="cover-bg"></div>
-        <div class="content-wrapper text-center">
-            <h1 class="serif gold">The Wedding of</h1>
-            <h2 class="serif gold">Indah & Geri</h2>
-            <p>Kamis, 26 Juni 2025</p>
-            <a href="#profil-wanita" id="bukaUndangan" class="btn btn-gold shadow">Lihat Undangan</a>
+        
+        <div class="title-corner">
+            <!-- <h1 class="serif gold">The Wedding Of</h1> -->
+            <p>The Wedding Of</p>
+            <h2 class="serif gold">Indah &<br>Geri</h2>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="kepada">
+                <p>Kepada Yth.</p>
+                <p>Bapak/Ibu/Saudara/i</p>
+                <div class="nama-tamu">Tamu Undangan</div>
+            </div>
+            <a href="#profil-wanita" id="bukaUndangan" class="btn btn-gold shadow"><i class="bi bi-envelope-open-fill me-2"></i>Buka Undangan</a>
         </div>
     </section>
 
@@ -1135,13 +1331,11 @@
   <section id="profil-wanita" class="profile-section">
     <div class="profile-bg-slideshow" id="slideshow-wanita">
       <div class="profile-bg-slide active" style="background-image: url('../assets/indah_geri/prewedding-indah-1.jpg')"></div>
-      <div class="profile-bg-slide" style="background-image: url('../assets/indah_geri/prewedding-indah-geri-1.jpg')"></div>
-      <div class="profile-bg-slide" style="background-image: url('../assets/indah_geri/prewedding-indah-geri-2.jpg')"></div>
     </div>
     <div class="profile-overlay"></div>
     <div class="profile-content">
       <div class="profile-card">
-        <div class="minang-border"></div>
+        <div class="minang-border" style="pointer-events: none;"></div>
         <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
           <use href="#minang-corner"/>
         </svg>
@@ -1179,13 +1373,11 @@
   <section id="profil-pria" class="profile-section">
     <div class="profile-bg-slideshow" id="slideshow-pria">
       <div class="profile-bg-slide active" style="background-image: url('../assets/indah_geri/prewedding-geri-1.jpg')"></div>
-      <div class="profile-bg-slide" style="background-image: url('../assets/indah_geri/prewedding-indah-geri-3.jpg')"></div>
-      <div class="profile-bg-slide" style="background-image: url('../assets/indah_geri/prewedding-indah-geri-4.jpg')"></div>
     </div>
     <div class="profile-overlay"></div>
     <div class="profile-content">
       <div class="profile-card">
-        <div class="minang-border"></div>
+        <div class="minang-border" style="pointer-events: none;"></div>
         <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
           <use href="#minang-corner"/>
         </svg>
@@ -1225,7 +1417,7 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border"></div>
+      <div class="minang-border" style="pointer-events: none;"></div>
       <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
@@ -1311,7 +1503,7 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border"></div>
+      <div class="minang-border" style="pointer-events: none;"></div>
       <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
@@ -1344,7 +1536,7 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border"></div>
+      <div class="minang-border" style="pointer-events: none;"></div>
       <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
@@ -1403,7 +1595,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="https://maps.app.goo.gl/xxxx" target="_blank" class="btn btn-gold">
+        <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" target="_blank" class="btn btn-gold">
           <i class="bi bi-geo-alt-fill"></i> Lihat Lokasi di Google Maps
         </a>
       </div>
@@ -1416,7 +1608,7 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border"></div>
+      <div class="minang-border" style="pointer-events: none;"></div>
       <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
@@ -1455,7 +1647,7 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border"></div>
+      <div class="minang-border" style="pointer-events: none;"></div>
       <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
@@ -1503,9 +1695,9 @@
       <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
-      <h2 class="section-title serif">Amplop Digital</h2>
+      <h2 class="section-title serif">Widding Gift</h2>
       <div class="envelope-card text-center">
-        <p class="mb-4">Doa restu anda merupakan hadiah terbaik bagi kami. Namun jika ingin memberikan tanda kasih, dapat melalui:</p>
+        <p class="mb-4">Doa restu Anda adalah hadiah terindah bagi kami. Namun apabila ingin berbagi tanda kasih, dapat disampaikan melalui:</p>
         <div class="bank-info">
           <div class="d-flex align-items-center justify-content-center gap-2">
             <div>
