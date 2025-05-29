@@ -103,17 +103,18 @@
           linear-gradient(-45deg, transparent 48%, #ffd700 49%, #ffd700 51%, transparent 52%);
       background-size: 30px 30px;
       background-position: center;
-    }
-
-    .minang-divider {
-        position: relative;
-        height: 40px;
-        margin: 2rem 0;
-        opacity: 0.2;
-        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%23ffd700'/%3E%3C/svg%3E");
-        background-repeat: repeat-x;
-        background-position: center;
-        background-size: contain;
+      mask-image: linear-gradient(to bottom, 
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,0) 20%,
+            rgba(0,0,0,0) 80%,
+            rgba(0,0,0,1) 100%
+        );
+        -webkit-mask-image: linear-gradient(to bottom, 
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,0) 20%,
+            rgba(0,0,0,0) 80%,
+            rgba(0,0,0,1) 100%
+        );
     }
 
     .minimal-card .btn,
@@ -129,6 +130,17 @@
     .minang-ornament-svg {
       z-index: 2;
       pointer-events: none;
+    }
+
+    .minang-divider {
+        position: relative;
+        height: 40px;
+        margin: 2rem 0;
+        opacity: 0.2;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%23ffd700'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: center;
+        background-size: contain;
     }
     
     .minimal-card:hover {
@@ -1219,9 +1231,9 @@
     .cover-bg {
         background: linear-gradient(
             to bottom,
-            rgba(16, 16, 16, 0.3) 0%,
-            rgba(16, 16, 16, 0) 50%,
-            rgba(16, 16, 16, 0.53) 100%
+            rgba(16, 16, 16, 0.4) 0%,
+            rgba(16, 16, 16, 0.1) 50%,
+            rgba(16, 16, 16, 0.4) 100%
         );
         position: absolute;
         inset: 0;
@@ -1440,7 +1452,7 @@
       <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
-      <h2 class="section-title serif">Our Story</h2>
+      <h2 class="serif">Our Story</h2>
       <!-- Swiper -->
       <div class="swiper story-slider">
         <div class="swiper-wrapper">
@@ -1527,7 +1539,7 @@
         <use href="#minang-corner"/>
       </svg>
       <!-- <div class="gallery-bg"></div> -->
-      <h2 class="section-title serif">Galeri</h2>
+      <h2 class="serif">Galeri</h2>
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper" id="galleryWrapper">
@@ -1559,7 +1571,7 @@
       <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
-      <h2 class="section-title serif">Detail Acara</h2>
+      <h2 class="serif">Detail Acara</h2>
       <div class="row text-center mb-4">
         <div class="col-md-6 mb-4">
           <div class="event-card">
@@ -1605,7 +1617,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" target="_blank" class="btn btn-gold">
+        <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" class="btn btn-light" target="_blank">
           <i class="bi bi-geo-alt-fill"></i> Lihat Lokasi di Google Maps
         </a>
       </div>
@@ -1646,7 +1658,7 @@
         <div class="mb-3">
           <input type="number" class="form-control" placeholder="Jumlah Tamu" min="1" max="10">
         </div>
-        <button type="submit" class="btn btn-gold w-100">Kirim Konfirmasi</button>
+        <button type="submit" class="btn btn-outline-warning w-100">Kirim Konfirmasi</button>
       </form>
     </div>
   </section>
