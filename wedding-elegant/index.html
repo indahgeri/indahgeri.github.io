@@ -246,7 +246,7 @@
     }
 
     /* Gallery Background */
-    .gallery-bg {
+    /* .gallery-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
@@ -257,10 +257,10 @@
       border-radius: 1.5rem;
       pointer-events: none;
       transition: opacity 0.5s ease;
-    }
+    } */
 
     #galeri .minimal-card {
-      background: rgba(16, 16, 16, 0.85);
+      background: rgba(16, 16, 16, 0.6);
       border: 2px solid rgba(255, 215, 0, 0.3);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(10px);
@@ -1050,6 +1050,48 @@
         padding-left: 5px;
       }
     }
+
+    /* Music */
+    .music-btn {
+        background-color: #ff2da0;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 0 rgba(255, 45, 160, 0.07);
+        transition: box-shadow 0.3s ease;
+        z-index: 9999;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .music-btn:hover {
+        opacity: 1;
+    }
+
+    .music-btn.playing {
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 45, 160, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(255, 45, 160, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 45, 160, 0);
+        }
+    }
   </style>
 </head>
 <body>
@@ -1085,7 +1127,7 @@
             <h1 class="serif gold">The Wedding of</h1>
             <h2 class="serif gold">Indah & Geri</h2>
             <p>Kamis, 26 Juni 2025</p>
-            <a href="#profil-wanita" class="btn btn-gold shadow">Lihat Undangan</a>
+            <a href="#profil-wanita" id="bukaUndangan" class="btn btn-gold shadow">Lihat Undangan</a>
         </div>
     </section>
 
@@ -1099,6 +1141,19 @@
     <div class="profile-overlay"></div>
     <div class="profile-content">
       <div class="profile-card">
+        <div class="minang-border"></div>
+        <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
         <div class="profile-image-wrapper">
           <div class="profile-image">
             <img src="../assets/indah_geri/prewedding-indah-1.jpg" alt="Indah">
@@ -1130,6 +1185,19 @@
     <div class="profile-overlay"></div>
     <div class="profile-content">
       <div class="profile-card">
+        <div class="minang-border"></div>
+        <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+          <use href="#minang-corner"/>
+        </svg>
         <div class="profile-image-wrapper">
           <div class="profile-image">
             <img src="../assets/indah_geri/prewedding-geri-1.jpg" alt="Geri">
@@ -1238,7 +1306,8 @@
   </section>
 
   <!-- Section 4: Galeri -->
-  <section id="galeri" class="container py-5 position-relative" style="z-index:1;">
+  <section id="galeri" class="container py-5 position-relative">
+    <div class="section-bg"></div>
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
@@ -1255,7 +1324,7 @@
       <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
-      <div class="gallery-bg"></div>
+      <!-- <div class="gallery-bg"></div> -->
       <h2 class="section-title serif">Galeri</h2>
       <!-- Swiper -->
       <div class="swiper mySwiper">
@@ -1456,7 +1525,12 @@
     </div>
   </section>
 
-  <footer class="text-center py-3 mt-4" style="background:#181818; color:#ffd700;">
+  <button id="musicButton" class="music-btn" style="display:none">
+      <i class="bi bi-music-note"></i>
+  </button>
+  <audio id="bgMusic" src="../assets/the_way_you_look_at_me.webm" loop style="display:none"></audio>
+
+  <footer class="text-center py-3 mt-9" style="background:#181818; color:#ffd700;">
     <small>© 2025 Indah & Geri Wedding. All rights reserved.</small>
   </footer>
 
@@ -1600,6 +1674,35 @@
     window.addEventListener('load', () => {
       initSlideshow('slideshow-wanita');
       initSlideshow('slideshow-pria');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const musicButton = document.getElementById('musicButton');
+        const bgMusic = document.getElementById('bgMusic');
+
+        musicButton.addEventListener('click', function () {
+        if (bgMusic.paused) {
+            bgMusic.play().catch(err => {
+                console.log("Autoplay gagal:", err);
+            });
+            musicButton.classList.add('playing');
+        } else {
+            bgMusic.pause();
+            musicButton.classList.remove('playing');
+        }
+        });
+
+        // Jangan tampilkan tombol music sebelum undangan dibuka
+        musicButton.style.display = 'none';
+        document.getElementById('bukaUndangan').addEventListener('click', function() {
+            musicButton.style.display = 'flex';
+            // Play music saat undangan dibuka
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(err => {
+                console.log("Autoplay gagal:", err);
+            });
+            musicButton.classList.add('playing');
+        });
     });
   </script>
 </body>
