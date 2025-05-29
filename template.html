@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="./assets/css/our-story.css">
     
     <!-- Detail Acara  -->
-    <link rel="stylesheet" href="./assets/css/detail-acara.css">
+    <link rel="stylesheet" href="./assets/css/detail-acara.css?v=2">
+    <link rel="stylesheet" href="./assets/css/countdown.css">
     
     <!-- RSVP -->
     <link rel="stylesheet" href="./assets/css/rsvp.css">
@@ -238,7 +239,7 @@
                     </div>
                 </div>
             </div>
-            <div id="countdown"></div>
+            <div id="countdown" data-date="2025-06-26T08:00:00"></div>
             <a href="https://maps.google.com" class="btn btn-primary mt-3" target="_blank">
                 <i class="bi bi-geo-alt-fill me-1"></i> Lihat Lokasi di Google Maps
             </a>
@@ -482,6 +483,7 @@
             });
         });
     </script>
+    <script src="./assets/js/countdown.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const musicButton = document.getElementById('musicButton');
@@ -506,53 +508,7 @@
             });
         });
     </script>
-    <!-- Countdown -->
-     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const countdownElement = document.getElementById('countdown');
-            const weddingDate = new Date('2025-06-26T08:00:00');
-
-            function pad(num) {
-                return String(num).padStart(2, '0');
-            }
-
-            function updateCountdown() {
-                const now = new Date();
-                const timeLeft = weddingDate - now;
-
-                if (timeLeft < 0) {
-                    countdownElement.innerHTML = "<h3>Acara telah berlangsung</h3>";
-                    return;
-                }
-
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `
-                    <div class="countdown-item">
-                        <span class="count">${pad(days)}</span>
-                        <span class="label">Hari</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="count">${pad(hours)}</span>
-                        <span class="label">Jam</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="count">${pad(minutes)}</span>
-                        <span class="label">Menit</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="count">${pad(seconds)}</span>
-                        <span class="label">Detik</span>
-                    </div>`;
-            }
-
-            setInterval(updateCountdown, 1000);
-            updateCountdown();
-        });
-    </script>
+    
     <style>
     body.freeze-scroll {
       overflow: hidden;
@@ -561,15 +517,15 @@
     </style>
     <script>
         // Selalu scroll ke atas saat halaman dimuat
-        window.addEventListener('load', function() {
-            window.scrollTo(0, 0);
-            document.body.classList.add('freeze-scroll');
-        });
+        // window.addEventListener('load', function() {
+        //     window.scrollTo(0, 0);
+        //     document.body.classList.add('freeze-scroll');
+        // });
 
-        // (Opsional, tetap biar di-refresh juga kembali ke atas)
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        };
+        // // (Opsional, tetap biar di-refresh juga kembali ke atas)
+        // window.onbeforeunload = function () {
+        //     window.scrollTo(0, 0);
+        // };
     </script>
 </body>
 </html>
