@@ -384,13 +384,14 @@
     }
 
     .story-slide {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 215, 0, 0.2);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       overflow: hidden;
       transition: all 0.3s ease;
       position: relative;
+      border-radius: 15px;
     }
 
     .story-slide-image {
@@ -408,9 +409,9 @@
       right: 0;
       bottom: 0;
       background: linear-gradient(to bottom, 
-        rgba(0,0,0,0.2) 0%,
-        rgba(0,0,0,0.6) 50%,
-        rgba(0,0,0,0.9) 100%
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.7) 100%
       );
       z-index: 1;
     }
@@ -430,9 +431,9 @@
       padding: 30px 20px;
       z-index: 2;
       background: linear-gradient(to top, 
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.7) 70%,
-        rgba(0, 0, 0, 0.4) 100%
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 70%,
+        rgba(0, 0, 0, 0.2) 100%
       );
     }
 
@@ -464,22 +465,6 @@
       transform: scale(1.05);
     }
 
-    .story-slider .swiper-button-next,
-    .story-slider .swiper-button-prev {
-      color: #ffd700;
-      text-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .story-slider .swiper-pagination-bullet {
-      background: #ffd700;
-      opacity: 0.5;
-    }
-
-    .story-slider .swiper-pagination-bullet-active {
-      opacity: 1;
-      transform: scale(1.2);
-    }
-
     @media (max-width: 768px) {
       .story-slide-image {
         height: 280px;
@@ -501,6 +486,24 @@
         font-size: 0.9rem;
         line-height: 1.4;
       }
+
+      #story .minimal-card {
+        padding: 1rem;
+      }
+    }
+
+    /* Section Background Adjustments */
+    .section-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat fixed;
+      opacity: 0.4;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    #story .minimal-card {
+      background: rgba(16, 16, 16, 0.5);
     }
 
     /* Profile Section Styles */
@@ -654,6 +657,12 @@
     #cover {
         background: linear-gradient(135deg, rgba(35, 37, 38, 0.7) 0%, rgba(16, 16, 16, 0.7) 100%);
         overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
 
     #cover .content-wrapper {
@@ -661,13 +670,15 @@
         z-index: 2;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         padding: 2rem;
-        background: linear-gradient(to top, 
-            rgba(0,0,0,0.8) 0%,
-            rgba(0,0,0,0.6) 40%,
-            rgba(0,0,0,0) 100%);
+        background: linear-gradient(to bottom, 
+            rgba(0,0,0,0.6) 0%,
+            rgba(0,0,0,0.4) 40%,
+            rgba(0,0,0,0.2) 100%);
         width: 100%;
         position: absolute;
-        bottom: 0;
+        top: 50%;
+        transform: translateY(-40%);
+        text-align: center;
     }
 
     #cover h1 {
@@ -701,6 +712,11 @@
     }
 
     @media (max-width: 768px) {
+        #cover .content-wrapper {
+            padding: 1.5rem 1rem;
+            transform: translateY(-20%);
+        }
+        
         #cover h1 {
             font-size: 2rem;
         }
@@ -717,22 +733,9 @@
             padding: 0.6rem 2rem;
             font-size: 1rem;
         }
-        
-        #cover .content-wrapper {
-            padding: 1.5rem 1rem;
-        }
     }
 
     /* Common Section Styles */
-    .section-bg {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background: url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat fixed;
-        opacity: 0.3;
-        filter: brightness(0.8) contrast(1.1);
-    }
-
     section {
         position: relative;
         background: linear-gradient(135deg, 
