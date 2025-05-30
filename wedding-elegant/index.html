@@ -154,7 +154,7 @@
       letter-spacing: 2px;
       z-index: 1;
       position: relative;
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       font-size: 2rem;
     }
 
@@ -321,18 +321,6 @@
     }
 
     /* Gallery Background */
-    /* .gallery-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0.9) 100%),
-                  url('../../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;
-      opacity: 1;
-      filter: blur(3px) grayscale(0.3);
-      border-radius: 1.5rem;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-    } */
 
     #galeri .minimal-card {
       background: rgba(16, 16, 16, 0.6);
@@ -1345,7 +1333,7 @@
                 <p>Bapak/Ibu/Saudara/i</p>
                 <div class="nama-tamu">Tamu Undangan</div>
             </div>
-            <a href="#profil-wanita" id="bukaUndangan" class="btn btn-outline-light shadow"><i class="bi bi-envelope-open-fill me-2"></i>Buka Undangan</a>
+            <a href="#" id="bukaUndangan" class="btn btn-outline-light shadow"><i class="bi bi-envelope-open-fill me-2"></i>Buka Undangan</a>
         </div>
     </section>
 
@@ -1717,7 +1705,7 @@
       <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
         <use href="#minang-corner"/>
       </svg>
-      <h2 class="section-title serif">Widding Gift</h2>
+      <h2 class="section-title serif">Wedding Gift</h2>
       <div class="envelope-card text-center">
         <p class="mb-4">Doa restu Anda adalah hadiah terindah bagi kami. Namun apabila ingin berbagi tanda kasih, dapat disampaikan melalui:</p>
         <div class="bank-info">
@@ -1908,7 +1896,9 @@
 
         // Jangan tampilkan tombol music sebelum undangan dibuka
         musicButton.style.display = 'none';
-        document.getElementById('bukaUndangan').addEventListener('click', function() {
+        document.getElementById('bukaUndangan').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('profil-wanita').scrollIntoView({ behavior: 'smooth' });
             musicButton.style.display = 'flex';
             // Play music saat undangan dibuka
             const audio = document.getElementById('bgMusic');
