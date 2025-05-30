@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Undangan Pernikahan Elegan</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts (Serif & Mewah) -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> -->
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
+      body {
+          font-family: 'Segoe UI', sans-serif;
+      }
+      html, body {
+          max-width: 100vw;
+          overflow-x: hidden;
+      }
+  </style>
+    <style>
+        /* Base styles */
+        body {
+        background: #1a1a1a;
+        color: #d4c4a5;
+        font-family: 'Montserrat', serif;
+        min-height: 100vh;
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        }
+
+        /* Typography */
+        h1, h2, h3, .serif {
+        font-family: 'Great Vibes', cursive;
+        color: #d4c4a5;
+        letter-spacing: 0.5px;
+        }
+
+        /* Colors & Utilities */
+        .gold { color: #d4c4a5; }
+        .bg-gold {
+        background: #d4c4a5 !important;
+        color: #1a1a1a !important;
+        }
+        .border-gold { border-color: #d4c4a5 !important; }
+
+        /* Common Section Styles */
+        section {
+        position: relative;
+        background: linear-gradient(135deg, 
+            rgba(26, 26, 26, 0.8) 0%,
+            rgba(26, 26, 26, 0.6) 100%
+        );
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 4rem 0;
+        margin: 0;
+        }
+
+        section .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        overflow: hidden;
+        }
+
+        .minimal-card {
+        border: 1px solid rgba(212, 196, 165, 0.3);
+        border-radius: 0.5rem;
+        background: rgba(26, 26, 26, 0.75);
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        width: 100%;
+        }
+
+        .minimal-card > * {
+        position: relative;
+        z-index: 3;
+        }
+
+        .minang-border {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0.1;
+        pointer-events: none;
+        background-image: 
+            linear-gradient(45deg, transparent 48%, #d4c4a5 49%, #d4c4a5 51%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, #d4c4a5 49%, #d4c4a5 51%, transparent 52%);
+        background-size: 30px 30px;
+        background-position: center;
+        mask-image: linear-gradient(to bottom, 
+                rgba(0,0,0,1) 0%,
+                rgba(0,0,0,0) 20%,
+                rgba(0,0,0,0) 80%,
+                rgba(0,0,0,1) 100%
+            );
+            -webkit-mask-image: linear-gradient(to bottom, 
+                rgba(0,0,0,1) 0%,
+                rgba(0,0,0,0) 20%,
+                rgba(0,0,0,0) 80%,
+                rgba(0,0,0,1) 100%
+            );
+        }
+
+        .minimal-card .btn,
+        .minimal-card a,
+        .minimal-card button,
+        .minimal-card input,
+        .minimal-card select,
+        .minimal-card textarea {
+        position: relative;
+        z-index: 4;
+        }
+
+        .minang-ornament-svg {
+        z-index: 2;
+        pointer-events: none;
+        }
+
+        .minang-divider {
+            position: relative;
+            height: 40px;
+            margin: 2rem 0;
+            opacity: 0.2;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z' fill='%23d4c4a5'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .minimal-card:hover {
+        transform: translateY(-3px);
+        }
+
+        /* Section Titles */
+        .section-title {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        letter-spacing: 2px;
+        z-index: 1;
+        position: relative;
+        /* text-transform: uppercase; */
+        font-size: 2rem;
+        }
+
+        /* Buttons */
+        .btn-gold {
+        background: #d4c4a5;
+        color: #1a1a1a;
+        border: none;
+        font-weight: 600;
+        border-radius: 0.25rem;
+        padding: 0.8rem 2rem;
+        transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+        background: #c4b495;
+        color: #1a1a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 196, 165, 0.3);
+        }
+
+        /* Form Elements */
+        .form-control, .form-select {
+        background: rgba(26, 26, 26, 0.8);
+        color: #d4c4a5;
+        border: 1px solid #d4c4a5;
+        border-radius: 0.25rem;
+        padding: 0.8rem 1rem;
+        transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+        background: rgba(26, 26, 26, 0.9);
+        border-color: #c4b495;
+        box-shadow: 0 0 0 0.2rem rgba(212, 196, 165, 0.25);
+        }
+
+        input, textarea { 
+        color: #d4c4a5 !important; 
+        }
+
+        /* Placeholder Styles */
+        ::placeholder {
+        color: #d4c4a5cc !important;    /* gold, agak transparan */
+        opacity: 0.7 !important;        /* lebih transparan */
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        }
+
+        /* Gallery Slider */
+        .swiper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 400px;
+        border-radius: 0.5rem;
+        border: 2px solid #d4c4a5;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .swiper-slide-active {
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(212, 196, 165, 0.4);
+        }
+
+        .swiper-pagination-bullet {
+        background: #d4c4a5;
+        opacity: 0.5;
+        transition: all 0.4s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+        opacity: 1;
+        transform: scale(1.2);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+        color: #d4c4a5;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px rgba(212, 196, 165, 0.6);
+        }
+
+        /* Background Elements */
+        .bg-ornament {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.2;
+        fill: #d4c4a5;
+        filter: blur(0.5px);
+        transition: opacity 0.3s ease;
+        }
+
+        .ornament-topright {
+        top: -40px; 
+        right: -40px;
+        transform: rotate(10deg);
+        }
+
+        .ornament-bottomleft {
+        bottom: -40px; 
+        left: -40px;
+        transform: rotate(-25deg) scaleX(-1);
+        }
+
+        /* Background Patterns */
+        .cover-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(26, 26, 26, 0.3) 0%,
+            rgba(26, 26, 26, 0.5) 50%,
+            rgba(26, 26, 26, 0.8) 100%
+        );
+        pointer-events: none;
+        }
+
+        /* Background Images */
+        .bg-mempelai {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
+        opacity: 0.4;
+        filter: brightness(0.8) contrast(1.1);
+        border-radius: 0;
+        }
+
+        .bg-coverfoto {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
+        opacity: 0.6;
+        filter: brightness(0.85) contrast(1.1);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        /* Gallery Background */
+
+        #galeri .minimal-card {
+        background: rgba(26, 26, 26, 0.6);
+        border: 2px solid rgba(212, 196, 165, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        }
+
+        #galeri .minimal-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(212,196,165,0.1) 0%,
+            rgba(212,196,165,0.05) 50%,
+            rgba(212,196,165,0.1) 100%);
+        z-index: -1;
+        border-radius: 0.5rem;
+        }
+
+        /* Section Z-index Management */
+        section .container, 
+        section > .minimal-card, 
+        section > div {
+        position: relative;
+        z-index: 3;
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 576px) {
+        .minimal-card {
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        .swiper-slide {
+            width: 240px;
+            height: 320px;
+        }
+
+        .bg-ornament { 
+            width: 100px; 
+            height: 100px; 
+        }
+
+        .bg-mempelai,
+        #profil {
+            border-radius: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+        }
+        }
+
+        @media (max-width: 576px) {
+        .form-control,
+        .form-select {
+            font-size: 0.95rem;
+            padding: 0.7rem 0.9rem;
+        }
+        ::placeholder {
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+        }
+        .btn-gold {
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        }
+
+        /* Timeline Styles */
+        .timeline {
+        position: relative;
+        padding: 2rem 0;
+        }
+
+        .timeline::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, #d4c4a5, transparent);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.3;
+        }
+
+        .timeline-item {
+        position: relative;
+        margin-bottom: 4rem;
+        }
+
+        .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #d4c4a5;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 20px rgba(212, 196, 165, 0.5);
+        z-index: 2;
+        }
+
+        .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background: #d4c4a5;
+        top: 50%;
+        opacity: 0.3;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+        right: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+        left: 50%;
+        }
+
+        .timeline-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-content {
+        padding: 2rem;
+        background: rgba(26, 26, 26, 0.5);
+        border-radius: 15px;
+        border: 1px solid rgba(212, 196, 165, 0.2);
+        backdrop-filter: blur(5px);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-content:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 196, 165, 0.4);
+        box-shadow: 0 10px 30px rgba(212, 196, 165, 0.1);
+        }
+
+        .timeline-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(212, 196, 165, 0.2);
+        }
+
+        .timeline-image:hover img {
+        transform: scale(1.1);
+        }
+
+        .timeline-content h5 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Great Vibes', cursive;
+        }
+
+        .timeline-content .gold-light {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: block;
+        }
+
+        .timeline-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+        .timeline::before {
+            left: 0;
+        }
+
+        .timeline-item::before {
+            left: 0;
+        }
+
+        .timeline-item::after {
+            display: none;
+        }
+
+        .timeline-content {
+            text-align: left !important;
+            margin-top: 1rem;
+            padding: 1.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+        }
+
+        .timeline-image img {
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .timeline-content h5 {
+            font-size: 1.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+        }
+        }
+
+        /* Story Slider Styles */
+
+        /* Section Background Adjustments */
+        .section-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
+        opacity: 0.4;
+        filter: brightness(0.8) contrast(1.1);
+        }
+
+        /* Profile Section Styles */
+        .profile-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+
+        .profile-bg-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .profile-bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .profile-bg-slide.active {
+            opacity: 1;
+        }
+
+        .profile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.9) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.9) 100%);
+            z-index: 2;
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+            margin-bottom: 0rem;
+            margin-top: 5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            position: relative;
+            padding: 3.5rem 2rem 2rem 2rem; /* tambah padding-top agar tidak tabrakan */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow: visible; /* penting agar image bisa keluar */
+        }
+
+        .profile-image-wrapper {
+            position: absolute;
+            top: -60px; /* setengah tinggi image */
+            left: 2rem;
+            z-index: 5;
+            margin-right: 2rem;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #d4c4a5;
+            background: #222;
+            margin: 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15)
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .profile-text {
+            flex: 1;
+            text-align: left;
+            padding: 0;
+            margin-left: 150px; /* beri jarak agar text tidak tertutup image */
+        }
+
+        .profile-text h3 {
+            font-size: 1.6rem;
+            color: #d4c4a5;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
+        }
+
+        .profile-text .gold-light {
+            font-size: 0.95rem;
+            color: #d4c4a5;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        .profile-text .parents-name {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #d4c4a5;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .profile-content {
+                width: 92%;
+                max-width: 600px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .profile-image-wrapper {
+                position: absolute;
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-right: 0;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+            }
+
+            .profile-text {
+                margin-left: 0;
+                margin-top: 60px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-content {
+                width: 95%;
+            }
+
+            .profile-card {
+                padding: 1.2rem;
+            }
+
+            .profile-image {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        /* Event Details Update */
+        .event-card {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 196, 165, 0.2);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            background: rgba(26, 26, 26, 0.75);
+            border-color: rgba(212, 196, 165, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .event-details i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* RSVP Form Update */
+        .form-control, .form-select {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 196, 165, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(26, 26, 26, 0.8);
+            border-color: rgba(212, 196, 165, 0.4);
+            box-shadow: 0 0 0 0.2rem rgba(212, 196, 165, 0.15);
+        }
+
+        /* Guestbook Update */
+        .guestbook-entry {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 196, 165, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Digital Envelope Update */
+        .envelope-card {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 196, 165, 0.2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .bank-info {
+            background: rgba(212, 196, 165, 0.1);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 768px) {
+            .event-card {
+                padding: 1.5rem;
+            }
+
+            .event-details i {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .envelope-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Minang Ornaments */
+        .minang-ornament {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.15;
+            fill: #d4c4a5;
+        }
+
+        .minang-corner-top {
+            top: 0;
+            right: 0;
+            transform: rotate(0deg);
+        }
+
+        .minang-corner-bottom {
+            bottom: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Update minimal-card with Minang pattern */
+        .minimal-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .minimal-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c13.807 0 25 11.193 25 25S43.807 55 30 55 5 43.807 5 30 16.193 5 30 5zm0 2.5c-12.427 0-22.5 10.073-22.5 22.5S17.573 52.5 30 52.5 52.5 42.427 52.5 30 42.427 7.5 30 7.5z' fill='%23d4c4a5' fill-opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* Minang Pattern for sections */
+        section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 5C25.147 5 5 25.147 5 50s20.147 45 45 45 45-20.147 45-45S74.853 5 50 5z' fill='%23d4c4a5' fill-opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* SVG Minang Ornament Template */
+        .minang-ornament-svg {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            fill: #d4c4a5;
+            opacity: 0.1;
+        }
+
+        .top-left {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .top-right {
+            top: 20px;
+            right: 20px;
+            transform: rotate(45deg);
+        }
+
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+            transform: rotate(-135deg);
+        }
+
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(135deg);
+        }
+
+        /* Container adjustments */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            overflow-x: hidden;
+        }
+
+        /* Profile Section Adjustments */
+        #profil .row {
+        margin-right: -10px;
+        margin-left: -10px;
+        width: 100%;
+        }
+
+        #profil .col-md-5 {
+        padding-right: 10px;
+        padding-left: 10px;
+        }
+
+        .profile-card {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        }
+
+        /* Story Section Adjustments */
+
+        /* Gallery Section Adjustments */
+        #galeri .swiper {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        }
+
+        /* Event Details Adjustments */
+        .event-card {
+        width: 100%;
+        max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+        section {
+            padding: 2rem 0;
+        }
+
+        section .container {
+            padding: 0 10px;
+        }
+
+        .minimal-card {
+            padding: 1.5rem;
+        }
+
+        #profil .row {
+            margin-right: -5px;
+            margin-left: -5px;
+        }
+
+        #profil .col-md-5 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        }
+
+        @media (max-width: 576px) {
+        section {
+            padding: 1.5rem 0;
+        }
+
+        .minimal-card {
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        }
+
+        /* Fix for horizontal scroll on all sections */
+        .row {
+        margin-right: 0;
+        margin-left: 0;
+        }
+
+        [class*="col-"] {
+        padding-right: 10px;
+        padding-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+        [class*="col-"] {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        }
+
+        /* Music */
+        .music-btn {
+            background-color: #d4c4a5;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 0 rgba(212, 196, 165, 0.07);
+            transition: box-shadow 0.3s ease;
+            z-index: 9999;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .music-btn:hover {
+            opacity: 1;
+        }
+
+        .music-btn.playing {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 196, 165, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 196, 165, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 196, 165, 0);
+            }
+        }
+
+        /* Cover Styles */
+        #cover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cover .title-corner {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            text-align: left;
+            z-index: 3;
+        }
+
+        #cover .title-corner p {
+            font-size: 0.6rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #cover .title-corner h1 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #cover .title-corner h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #cover .content-wrapper {
+            transform: translateY(20%);
+            margin-top: 30vh;
+            text-align: center;
+            z-index: 3;
+            /* background: rgba(0, 0, 0, 0.4); */
+            padding: 2rem;
+            border-radius: 1rem;
+            /* backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px); */
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #cover .content-wrapper .kepada {
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        #cover .content-wrapper .kepada p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        #cover .content-wrapper .nama-tamu {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin: 0.8rem 0 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cover-bg {
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 26, 26, 0.4) 0%,
+                rgba(26, 26, 26, 0.1) 50%,
+                rgba(26, 26, 26, 0.4) 100%
+            );
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            #cover .title-corner {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+
+            #cover .title-corner p {
+                font-size: 0.5rem;
+            }
+
+            #cover .title-corner h1 {
+                font-size: 0.9rem;
+            }
+
+            #cover .title-corner h2 {
+                font-size: 2rem;
+            }
+
+            #cover .content-wrapper {
+                padding: 1.5rem;
+                max-width: 350px;
+            }
+
+            #cover .content-wrapper .nama-tamu {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #cover .title-corner {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            #cover .title-corner h1 {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            #cover .title-corner h2 {
+                font-size: 2.50rem;
+            }
+
+            #cover .content-wrapper {
+                padding: 1.25rem;
+                transform: translateY(30%);
+            }
+
+            #cover .content-wrapper .kepada p {
+                font-size: 0.9rem;
+            }
+
+            #cover .content-wrapper .nama-tamu {
+                font-size: 1.2rem;
+                margin: 0.6rem 0 1.2rem;
+            }
+
+            #cover .btn-gold {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bg-coverfoto {
+                background-position: 40% center; /* Geser ke kiri 35% pada tampilan tablet */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bg-coverfoto {
+                background-position: 40% center; /* Geser lebih ke kiri 30% pada tampilan mobile */
+            }
+        }
+
+        /* Save The Date Section Styles */
+        #save-the-date {
+            background: #000;
+            overflow: hidden;
+        }
+
+        #save-the-date .section-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+
+        #save-the-date .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .save-date-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .save-date-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .save-date-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: fit-content;
+            border: 1px solid rgba(212, 196, 165, 0.15);
+            box-shadow: 0 8px 32px rgba(41, 25, 22, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-box {
+            position: relative;
+            padding: 0.5rem 2rem;
+            min-width: 120px;
+            text-align: center;
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.6));
+            border-radius: 0.25rem;
+            border: 1px solid rgba(212, 196, 165, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 196, 165, 0.15);
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.7));
+        }
+
+        .countdown-box:not(:last-child)::after {
+            content: ':';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #d4c4a5;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(212, 196, 165, 0.4);
+        }
+
+        .countdown-number {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom right, #d4c4a5, #c4b495);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(212, 196, 165, 0.4);
+            animation: pulse 1s infinite;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+        }
+
+        .save-date-text {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #d4c4a5, #c4b495);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            text-shadow: 0 0 10px rgba(212, 196, 165, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .countdown-container {
+                padding: 1.5rem;
+                gap: 0.8rem;
+            }
+
+            .countdown-box {
+                padding: 0.5rem 1.5rem;
+                min-width: 100px;
+            }
+
+            .countdown-number {
+                font-size: 2.2rem;
+            }
+
+            .countdown-box:not(:last-child)::after {
+                font-size: 2rem;
+                right: -0.8rem;
+            }
+
+            .countdown-label {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .countdown-container {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .countdown-box {
+                padding: 0.4rem 1rem;
+                min-width: 80px;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .countdown-box:not(:last-child)::after {
+                font-size: 1.5rem;
+                right: -0.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        .scroll-btn {
+            margin-top: 2rem;
+        }
+
+        .scroll-btn a {
+            color: #d4c4a5;
+            font-size: 2.5rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn a:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .couple-name {
+                font-size: 3.5rem;
+            }
+
+            .countdown-container {
+                gap: 1rem;
+            }
+
+            .countdown-box {
+                min-width: 70px;
+                padding: 0.8rem;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .couple-name {
+                font-size: 2.8rem;
+            }
+
+            .small-title {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .wedding-date {
+                font-size: 1rem;
+            }
+
+            .save-date-text {
+                font-size: 1rem;
+                letter-spacing: 3px;
+            }
+
+            .countdown-container {
+                gap: 0.8rem;
+            }
+
+            .countdown-box {
+                min-width: 65px;
+                padding: 0.7rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Zoom Animation for Background */
+        .animate-zoom {
+            animation: zoomInBackground 20s ease-out forwards;
+            transform-origin: center center;
+        }
+
+        @keyframes zoomInBackground {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            background-color: transparent !important;
+            border: none;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 0;
+        }
+
+        .modal-body img {
+            max-height: 85vh;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show .modal-body img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .modal-dialog {
+            max-width: 90%;
+            margin: 1.75rem auto;
+            transform: translateY(20px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+
+        .modal.fade {
+            transition: background-color 0.3s ease;
+        }
+
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px) scale(0.95);
+        }
+
+        .modal.show .modal-dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-dialog {
+                max-width: 95%;
+                margin: 1rem auto;
+            }
+
+        }
+
+        .modal-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 1100; /* pastikan lebih tinggi dari gambar */
+            background: rgba(26,26,26,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+            transition: background 0.2s, opacity 0.2s;
+            cursor: pointer; /* tambahkan agar jelas bisa diklik */
+        }
+
+        .modal-image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .modal-backdrop {
+            pointer-events: none !important;
+        }
+    </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Minang Corner Ornament SVG Definition -->
+    <svg style="display: none;">
+        <defs>
+            <g id="minang-corner">
+                <path d="M0,0 C30,10 50,30 60,60 C30,50 10,30 0,0 Z"/>
+                <path d="M10,10 C35,18 42,35 50,50 C25,42 18,25 10,10 Z"/>
+                <path d="M20,20 C35,25 35,35 40,40 C25,35 25,25 20,20 Z"/>
+            </g>
+        </defs>
+    </svg>
+
+    <!-- Section Cover -->
+    <section id="cover">
+        <div class="bg-coverfoto"></div>
+        <div class="cover-bg"></div>
+        
+        <div class="title-corner">
+            <!-- <h1 class="serif gold">The Wedding Of</h1> -->
+            <p data-aos="zoom-in-up" data-aos-duration="1000">The Wedding Of</p>
+            <h2 data-aos="fade-up-left" data-aos-offset="100" data-aos-duration="2000">Indah &<br>Gery</h2>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="kepada">
+                <p data-aos="zoom-in-down" data-aos-duration="2000">Kepada Yth.</p>
+                <p data-aos="zoom-in-down" data-aos-duration="1000">Bapak/Ibu/Saudara/i</p>
+                <div class="nama-tamu" data-aos="fade-up" data-aos-duration="3000">Tamu Undangan</div>
+            </div>
+            <a href="#" id="bukaUndangan" class="btn btn-outline-light shadow"><i class="bi bi-envelope-open-fill me-2"></i>Buka Undangan</a>
+        </div>
+    </section>
+
+    <!-- Section: Save The Date -->
+    <section id="save-the-date" class="position-relative min-vh-100">
+        <div class="section-bg animate-zoom" style="background: linear-gradient(to bottom, 
+            rgba(71, 39, 35, 0) 0%,
+            rgba(89, 47, 44, 0.3) 60%, 
+            rgba(41, 25, 22, 0.7) 100%
+        ), url('../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;"></div>
+        
+        <!-- Corner Title -->
+        <div class="position-absolute start-0 top-3 p-4" style="z-index: 2;">
+            <p class="text-uppercase mb-1" style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.9;" data-aos="fade-down" data-aos-duration="1000">The Wedding Of</p>
+            <h2 class="display-4 serif gold mb-2" data-aos="fade-up" data-aos-duration="2000">Indah &<br> Geri</h2>
+            <p class="mb-4" data-aos="fade-up" data-aos-duration="2000">Minggu, 26 Juni 2025</p>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="position-absolute bottom-0 start-0 w-100 text-center pb-5" style="z-index: 2;">
+            <p class="save-date-text mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">Save the Date</p>
+            
+            <div class="countdown-container mx-auto" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Menit</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Detik</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="position-absolute bottom-0 w-100" style="
+            height: 33vh;
+            background: linear-gradient(to bottom,
+                rgba(41, 25, 22, 0) 0%,
+                rgba(41, 25, 22, 1) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        "></div>
+    </section>
+
+    <!-- Section 1: Profil Mempelai Wanita -->
+    <section id="profil-wanita" class="profile-section">
+        <div class="profile-bg-slideshow" id="slideshow-wanita">
+            <div class="profile-bg-slide active" style="background-image: url('../assets/indah_geri/prewedding-indah-1.jpg')"></div>
+        </div>
+        <div class="profile-overlay"></div>
+        <div class="profile-content" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="2000">
+            <div class="profile-card">
+                <div class="minang-border" style="pointer-events: none;"></div>
+                <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <div class="profile-image-wrapper">
+                    <div class="profile-image">
+                        <img src="../assets/indah_geri/prewedding-indah-1.jpg" alt="Indah">
+                    </div>
+                </div>
+                <div class="profile-text">
+                    <h3 class="serif">Indah Permata Sari S.Ikom</h3>
+                    <p class="gold-light">Putri Keempat dari</p>
+                    <p class="parents-name">
+                        Bapak Inkarnedi & Almh. Ibu Erliwati S.pd
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/indahprmta____" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Profil Mempelai Pria -->
+    <section id="profil-pria" class="profile-section">
+        <div class="profile-bg-slideshow" id="slideshow-pria">
+            <div class="profile-bg-slide active" style="background-image: url('../assets/indah_geri/prewedding-geri-1.jpg')"></div>
+        </div>
+        <div class="profile-overlay"></div>
+        <div class="profile-content" data-aos="zoom-in-up" data-aos-delay="100" data-aos-duration="2000">
+            <div class="profile-card">
+                <div class="minang-border" style="pointer-events: none;"></div>
+                <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                    <use href="#minang-corner"/>
+                </svg>
+                <div class="profile-image-wrapper">
+                    <div class="profile-image">
+                        <img src="../assets/indah_geri/prewedding-geri-1.jpg" alt="Geri">
+                    </div>
+                </div>
+                <div class="profile-text">
+                    <h3 class="serif">Gery Anuggrah S.SOS</h3>
+                    <p class="gold-light">Putra Kedua dari</p>
+                    <p class="parents-name">
+                        Bapak SABARI S.P & Ibu Nailisada
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/gery.anuggrahh" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Our Story -->
+    <section id="story" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <div class="minimal-card">
+            <div class="minang-border" style="pointer-events: none;"></div>
+            <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <h2 class="serif text-center">Perjalanan Cinta Kami</h2>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item row mb-0">
+                    <div class="col-md-6 timeline-image" data-aos="fade-right" data-aos-delay="100" data-aos-duration="2000">
+                        <img src="../assets/indah_geri/prewedding-indah-geri-1.jpg" alt="First Meet" class="img-fluid rounded-3 shadow">
+                    </div>
+                    <div class="col-md-6 timeline-content text-md-start text-center" data-aos="fade-left" data-aos-delay="100" data-aos-duration="2000">
+                        <h5 class="gold serif">Awal Pertemuan</h5>
+                        <h6 class="gold-light">Januari 2018</h6>
+                        <p class="text-justify">Di tengah kesibukan perkuliahan, takdir mempertemukan kami melalui sebuah kesalahan kecil. Sebuah grup jurusan yang tertukar membawa kami pada obrolan pertama yang penuh makna. Tuhan memang memiliki cara yang indah untuk mempertemukan dua hati.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item row">
+                    <div class="col-md-6 timeline-content text-md-end text-center order-md-1 order-2"  data-aos="fade-left" data-aos-delay="100" data-aos-duration="2000">
+                        <h5 class="gold serif">Menjalin Kasih</h5>
+                        <h6 class="gold-light">26 Oktober 2018</h6>
+                        <p class="text-justify">Setelah beberapa bulan saling mengenal, kami memutuskan untuk mengikat hati dalam sebuah komitmen. Hari itu menjadi awal dari perjalanan cinta kami yang penuh dengan pembelajaran dan ketulusan.</p>
+                    </div>
+                    <div class="col-md-6 timeline-image order-md-2 order-1" data-aos="fade-right" data-aos-delay="100" data-aos-duration="2000">
+                        <img src="../assets/indah_geri/prewedding-indah-geri-3.jpg" alt="Dating" class="img-fluid rounded-3 shadow">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item row">
+                    <div class="col-md-6 timeline-image" data-aos="fade-right" data-aos-delay="100" data-aos-duration="2000">
+                        <img src="../assets/indah_geri/prewedding-indah-geri-5.jpg" alt="Engagement" class="img-fluid rounded-3 shadow">
+                    </div>
+                    <div class="col-md-6 timeline-content text-md-start text-center" data-aos="fade-left" data-aos-delay="100" data-aos-duration="2000">
+                        <h5 class="gold serif">Pertunangan</h5>
+                        <h6 class="gold-light">16 Maret 2025</h6>
+                        <p class="text-justify">Setelah menjalani hubungan selama kurang lebih 7 tahun, kami memantapkan hati untuk melangkah ke jenjang yang lebih serius. Dengan restu kedua keluarga, kami mengikat janji dalam sebuah pertunangan yang penuh makna.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item row">
+                    <div class="col-md-6 timeline-content text-md-end text-center order-md-1 order-2" data-aos="fade-left" data-aos-delay="100" data-aos-duration="2000">
+                        <h5 class="gold serif">Menuju Pernikahan</h5>
+                        <h6 class="gold-light">26 Juni 2025</h6>
+                        <p class="text-justify">Dan kini, dengan penuh rasa syukur dan bahagia, kami siap melangkah ke jenjang pernikahan. Semoga Allah SWT senantiasa memberkahi dan meridhoi perjalanan kami dalam membangun mahligai rumah tangga yang sakinah, mawaddah, warahmah.</p>
+                    </div>
+                    <div class="col-md-6 timeline-image order-md-2 order-1" data-aos="fade-right" data-aos-delay="100" data-aos-duration="2000">
+                        <img src="../assets/indah_geri/prewedding-indah-geri-7.jpg" alt="Wedding" class="img-fluid rounded-3 shadow">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tambahan Quote -->
+            <div class="quote-wrapper text-center">
+                <div class="quote-border"  data-aos="zoom-in-up" data-aos-delay="100" data-aos-duration="2000">
+                    <p class="quote-text">
+                        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                    </p>
+                    <p class="quote-source">
+                        (QS. Ar-Rum: 21)
+                    </p>
+                </div>
+            </div>
+
+            <style>
+                .quote-wrapper {
+                    margin: 2rem auto;
+                    max-width: 800px;
+                    padding: 0 1rem;
+                }
+
+                .quote-border {
+                    position: relative;
+                    padding: 2.5rem 2rem;
+                    background: rgba(26, 26, 26, 0.6);
+                    border: 1px solid rgba(212, 196, 165, 0.3);
+                }
+
+                .quote-border::before,
+                .quote-border::after {
+                    content: '';
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid rgba(212, 196, 165, 0.5);
+                }
+
+                .quote-border::before {
+                    top: 1rem;
+                    left: 1rem;
+                    border-right: none;
+                    border-bottom: none;
+                }
+
+                .quote-border::after {
+                    bottom: 1rem;
+                    right: 1rem;
+                    border-left: none;
+                    border-top: none;
+                }
+
+                .quote-text {
+                    font-family: 'Great Vibes', cursive;
+                    font-size: 1.8rem;
+                    line-height: 1.8;
+                    color: #d4c4a5;
+                    margin-bottom: 1rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .quote-source {
+                    font-family: 'Montserrat', serif;
+                    font-size: 1rem;
+                    color: rgba(212, 196, 165, 0.8);
+                    font-style: normal;
+                    margin-top: 1rem;
+                    letter-spacing: 1px;
+                }
+
+                @media (max-width: 768px) {
+                    .quote-wrapper {
+                        margin: 1.5rem auto;
+                    }
+
+                    .quote-border {
+                        padding: 2rem 1.5rem;
+                    }
+
+                    .quote-text {
+                        font-size: 1.5rem;
+                        line-height: 1.6;
+                    }
+
+                    .quote-border::before,
+                    .quote-border::after {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <style>
+    /* Timeline Content Styles */
+    .timeline-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: rgba(212, 196, 165, 0.9);
+        font-family: 'Montserrat', serif;
+    }
+
+    .timeline-content h5 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .timeline-content h6 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.25rem;
+        font-family: 'Montserrat', serif;
+    }
+
+    .text-justify {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    /* Timeline Image Styles */
+    .timeline-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .timeline-image img {
+        transition: transform 0.8s ease;
+        filter: sepia(0.2) brightness(0.95);
+    }
+
+    .timeline-image:hover img {
+        transform: scale(1.05);
+    }
+
+    .timeline-item {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .timeline-content {
+            padding: 1.5rem 1rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-content h5 {
+            font-size: 1.75rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+    }
+    </style>
+
+    <!-- Section 4: Galeri -->
+    <section id="galeri" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <h2 class="serif text-center mb-5">Galeri Kenangan</h2>
+        
+        <!-- Featured Image -->
+        <div class="featured-image fade-in mb-0">
+            <div class="featured-frame">
+                <img src="../assets/indah_geri/prewedding-indah-geri-6.jpg" alt="Featured Gallery Image">
+                <div class="frame-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be added here via JavaScript -->
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-transparent">
+                    <div class="modal-body p-0">
+                        <div class="modal-image-container">
+                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <img src="" class="img-fluid" id="modalImage" alt="Gallery Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    /* Gallery Section Styles */
+    #galeri {
+        background: rgba(26, 26, 26, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 1;
+    }
+
+    #galeri .section-bg {
+        position: absolute;
+        inset: 0;
+        background: #fff;
+        z-index: -1;
+    }
+
+    #galeri h2 {
+        color: #d4c4a5;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Featured Image Styles */
+    .featured-image {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .featured-frame {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+        border: 1px solid rgba(212, 196, 165, 0.3);
+        background: #1a1a1a;
+        transition: all 0.5s ease;
+        border-radius: 0.5rem;
+    }
+
+    .featured-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.8s ease;
+    }
+
+    .featured-frame:hover img {
+        transform: scale(1.05);
+    }
+
+    .frame-overlay {
+        position: absolute;
+        inset: 0;
+       
+        background: rgba(26, 26, 26, 0.2);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .featured-frame:hover .frame-overlay {
+        opacity: 1;
+    }
+
+    /* Gallery Grid Styles */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+        border: 1px solid rgba(212, 196, 165, 0.3);
+        background: #1a1a1a;
+        transition: all 0.5s ease;
+        border-radius: 0.5rem;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .gallery-item::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(26, 26, 26, 0.4);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover::after {
+        opacity: 1;
+    }
+
+    /* Fade In Animation */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        .featured-frame {
+            height: 50vh;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            padding: 0.25rem;
+        }
+
+        .featured-image {
+            padding: 0.25rem;
+        }
+    }
+    </style>
+
+    <!-- Section 5: Detail Acara -->
+    <section id="acara" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <div class="minimal-card">
+            <div class="minang-border" style="pointer-events: none;"></div>
+            <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <h2 class="serif">Detail Acara</h2>
+            <div class="row text-center mb-4">
+                <div class="col-md-6 mb-4">
+                    <div class="event-card">
+                        <h5 class="gold serif mb-3">Akad Nikah</h5>
+                        <div class="event-details">
+                            <p class="mb-2">
+                                <i class="bi bi-calendar-heart gold"></i><br>
+                                Kamis, 26 Juni 2025
+                            </p>
+                            <p class="mb-2">
+                                <i class="bi bi-clock gold"></i><br>
+                                08:00 WIB
+                            </p>
+                            <p class="mb-0">
+                                <i class="bi bi-geo-alt gold"></i><br>
+                                Mesjid Nurul Amin<br>
+                                Pagaruyung
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="event-card">
+                        <h5 class="gold serif mb-3">Resepsi</h5>
+                        <div class="event-details">
+                            <p class="mb-2">
+                                <i class="bi bi-calendar-heart gold"></i><br>
+                                Kamis, 26 Juni 2025
+                            </p>
+                            <p class="mb-2">
+                                <i class="bi bi-clock gold"></i><br>
+                                10:00 WIB s/d Selesai
+                            </p>
+                            <p class="mb-0">
+                                <i class="bi bi-geo-alt gold"></i><br>
+                                Komplek Perumahan PIP<br>
+                                Jorong Saruaso Barat, Nagari Saruaso<br>
+                                Kecamatan Tanjung Emas<br>
+                                Kabupaten Tanah Datar
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" class="btn btn-light" target="_blank">
+                    <i class="bi bi-geo-alt-fill"></i> Lihat Lokasi di Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: RSVP -->
+    <section id="rsvp" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <div class="minimal-card">
+            <div class="minang-border" style="pointer-events: none;"></div>
+            <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <h2 class="section-title serif">Konfirmasi Kehadiran (RSVP)</h2>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" required>
+                        <option value="">Kehadiran</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Jumlah Tamu" min="1" max="10">
+                </div>
+                <button type="submit" class="btn btn-outline-warning w-100">Kirim Konfirmasi</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section 7: Buku Tamu -->
+    <section id="bukutamu" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <div class="minimal-card">
+            <div class="minang-border" style="pointer-events: none;"></div>
+            <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <h2 class="section-title serif">Buku Tamu</h2>
+            <form id="guestbookForm" class="mb-4">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nama" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="3" placeholder="Ucapan & Doa" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-gold w-100">Kirim Ucapan</button>
+            </form>
+            <div id="guestbookList">
+                <!-- Guestbook entries will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Amplop Digital -->
+    <section id="amplop" class="container py-5 position-relative">
+        <div class="section-bg"></div>
+        <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
+        <div class="minimal-card">
+            <div class="minang-border"></div>
+            <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+                <use href="#minang-corner"/>
+            </svg>
+            <h2 class="section-title serif">Wedding Gift</h2>
+            <div class="envelope-card text-center">
+                <p class="mb-4">Doa restu Anda adalah hadiah terindah bagi kami. Namun apabila ingin berbagi tanda kasih, dapat disampaikan melalui:</p>
+                <div class="bank-info">
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <div>
+                            <p class="mb-0" style="font-size: 0.9rem;">BCA</p>
+                            <p class="mb-0" id="norek"><strong>1234567890</strong></p>
+                            <p class="mb-0" style="font-size: 0.9rem;">a.n. Indah Permata Sari</p>
+                        </div>
+                        <button class="btn btn-sm btn-gold ms-2" onclick="copyRek()" style="height: fit-content;">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="copyNotif" class="mt-2 text-gold" style="display:none; font-size: 0.9rem;">
+                    <i class="bi bi-check-circle"></i> Nomor rekening tersalin!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button id="musicButton" class="music-btn" style="display:none">
+        <i class="bi bi-music-note"></i>
+    </button>
+    <audio id="bgMusic" src="../assets/the_way_you_look_at_me.webm" loop style="display:none"></audio>
+
+    <footer class="text-center py-3 mt-9" style="background:#181818; color:#d4c4a5;">
+        <small>© 2025 Indah & Geri Wedding. All rights reserved.</small>
+    </footer>
+
+    <!-- Bootstrap 5 JS + Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the date we're counting down to (26 Juni 2025)
+        const countDownDate = new Date("Jun 26, 2025 00:00:00").getTime();
+
+        // Update the count down every 1 second
+        const countdownTimer = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Add leading zeros
+            const formatNumber = (number) => number < 10 ? `0${number}` : number;
+
+            // Update each element
+            document.getElementById('days').textContent = formatNumber(days);
+            document.getElementById('hours').textContent = formatNumber(hours);
+            document.getElementById('minutes').textContent = formatNumber(minutes);
+            document.getElementById('seconds').textContent = formatNumber(seconds);
+
+            // If the count down is finished, display expired message
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+                    document.getElementById(id).textContent = "00";
+                });
+            }
+        }, 1000);
+    </script>
+
+    <!-- Gallery -->
+    <script>
+    // Gallery initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pastikan elemen ada sebelum menjalankan kode
+        const galleryGrid = document.getElementById('galleryGrid');
+        if (!galleryGrid) {
+            console.error('Gallery grid element not found');
+            return;
+        }
+
+        const modalEl = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        // Inisialisasi modal menggunakan Bootstrap
+        const galleryModal = new bootstrap.Modal(modalEl, {
+            backdrop: 'static',
+            keyboard: true
+        });
+
+        // Event listener untuk menutup modal saat mengklik di luar gambar
+        modalEl.addEventListener('click', function(e) {
+            // Jika yang diklik adalah modal (background) atau tombol close
+            if (e.target === modalEl || e.target.closest('.modal-close-btn')) {
+                galleryModal.hide();
+            }
+        });
+
+        // Event listener untuk tombol ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalEl.classList.contains('show')) {
+                galleryModal.hide();
+            }
+        });
+
+        const galleryImages = [
+            '../assets/indah_geri/prewedding-indah-1.jpg',
+            '../assets/indah_geri/prewedding-geri-1.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-1.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-2.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-3.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-4.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-5.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-7.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-8.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-9.jpg',
+            '../assets/indah_geri/prewedding-indah-geri-10.jpg'
+        ];
+
+        try {
+            // Create and append gallery items
+            galleryImages.forEach((imgSrc, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item fade-in';
+                item.style.animationDelay = `${index * 0.2}s`;
+                
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Gallery Image ${index + 1}`;
+                item.appendChild(img);
+                
+                // Add click event for modal
+                item.addEventListener('click', () => {
+                    modalImage.src = imgSrc;
+                    galleryModal.show();
+                });
+                
+                galleryGrid.appendChild(item);
+            });
+
+            // Add click event for featured image
+            const featuredFrame = document.querySelector('.featured-frame');
+            if (featuredFrame) {
+                featuredFrame.addEventListener('click', () => {
+                    modalImage.src = '../assets/indah_geri/prewedding-indah-geri-6.jpg';
+                    galleryModal.show();
+                });
+            }
+
+            // Intersection Observer for fade-in animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Observe all gallery items and featured image
+            document.querySelectorAll('.fade-in').forEach(item => {
+                observer.observe(item);
+            });
+        } catch (error) {
+            console.error('Error initializing gallery:', error);
+        }
+    });
+
+    // Buku Tamu Dummy Interaksi (Tanpa Backend)
+    document.getElementById('guestbookForm').onsubmit = function(e){
+        e.preventDefault();
+        const name = this[0].value;
+        const message = this[1].value;
+        if(name && message) {
+            const list = document.getElementById('guestbookList');
+            const entry = document.createElement('div');
+            entry.className = 'p-2 mb-2 border-gold rounded';
+            entry.innerHTML = `<strong class="gold">${name}</strong><br><span>${message}</span>`;
+            list.prepend(entry);
+            this.reset();
+        }
+    };
+
+    // Copy rekening ke clipboard
+    function copyRek() {
+        const norek = document.getElementById('norek').textContent;
+        navigator.clipboard.writeText(norek).then(function() {
+            const notif = document.getElementById('copyNotif');
+            notif.style.display = 'block';
+            setTimeout(() => {
+                notif.style.display = 'none';
+            }, 2000);
+        });
+    }
+
+    // Profile Background Slideshow
+    function initSlideshow(slideshowId) {
+        const slideshow = document.getElementById(slideshowId);
+        const slides = slideshow.getElementsByClassName('profile-bg-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 10 seconds
+        setInterval(nextSlide, 10000);
+    }
+
+    // Initialize slideshows for both profiles
+    window.addEventListener('load', () => {
+        initSlideshow('slideshow-wanita');
+        initSlideshow('slideshow-pria');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const musicButton = document.getElementById('musicButton');
+        const bgMusic = document.getElementById('bgMusic');
+
+        musicButton.addEventListener('click', function () {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(err => {
+                    console.log("Autoplay gagal:", err);
+                });
+                musicButton.classList.add('playing');
+            } else {
+                bgMusic.pause();
+                musicButton.classList.remove('playing');
+            }
+        });
+
+        // Jangan tampilkan tombol music sebelum undangan dibuka
+        musicButton.style.display = 'none';
+        document.getElementById('bukaUndangan').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('save-the-date').scrollIntoView({ behavior: 'smooth' });
+            musicButton.style.display = 'flex';
+            // Play music saat undangan dibuka
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(err => {
+                console.log("Autoplay gagal:", err);
+            });
+            musicButton.classList.add('playing');
+        });
+    });
+    </script>
+</body>
+</html>
