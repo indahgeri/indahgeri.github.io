@@ -320,30 +320,6 @@
         object-fit: cover;
         }
 
-        /* Gallery Background */
-
-        #galeri .minimal-card {
-        background: rgba(26, 26, 26, 0.6);
-        border: 2px solid rgba(212, 196, 165, 0.3);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
-        }
-
-        #galeri .minimal-card:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, 
-            rgba(212,196,165,0.1) 0%,
-            rgba(212,196,165,0.05) 50%,
-            rgba(212,196,165,0.1) 100%);
-        z-index: -1;
-        border-radius: 0.5rem;
-        }
-
         /* Section Z-index Management */
         section .container, 
         section > .minimal-card, 
@@ -970,13 +946,6 @@
 
         /* Story Section Adjustments */
 
-        /* Gallery Section Adjustments */
-        #galeri .swiper {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        }
-
         /* Event Details Adjustments */
         .event-card {
         width: 100%;
@@ -1335,6 +1304,7 @@
             margin-bottom: 0.5rem;
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(to bottom right, #d4c4a5, #c4b495);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(212, 196, 165, 0.4);
@@ -1354,6 +1324,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             background: linear-gradient(to right, #d4c4a5, #c4b495);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
@@ -1596,7 +1567,7 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            z-index: 1100; /* pastikan lebih tinggi dari gambar */
+            z-index: 1100;
             background: rgba(26,26,26,0.7);
             color: #fff;
             border: none;
@@ -1609,7 +1580,7 @@
             justify-content: center;
             opacity: 0.85;
             transition: background 0.2s, opacity 0.2s;
-            cursor: pointer; /* tambahkan agar jelas bisa diklik */
+            cursor: pointer;
         }
 
         .modal-image-container img {
@@ -1623,6 +1594,126 @@
 
         .modal-backdrop {
             pointer-events: none !important;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gallery Item Styles */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            background: #1a1a1a;
+            transition: all 0.5s ease;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.4);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .featured-image img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        /* Modal Styles */
+        .modal {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .modal-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 1100;
+            background: rgba(26,26,26,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+            transition: background 0.2s, opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .modal-image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .modal-backdrop {
+            pointer-events: none !important;
+        }
+
+        /* Modal Styles */
+        .modal {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal-dialog {
+            max-width: 90%;
+            margin: 1.75rem auto;
+        }
+
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 800px;
+            }
+        }
+
+        .btn-close-white {
+            filter: brightness(0) invert(1);
         }
     </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -2021,182 +2112,88 @@
     </style>
 
     <!-- Section 4: Galeri -->
-    <section id="galeri" class="container py-5 position-relative">
-        <div class="section-bg"></div>
-        <h2 class="serif text-center mb-5">Galeri Kenangan</h2>
+    <section id="galeri" class="container py-5">
+        <div class="minang-border" style="pointer-events: none;"></div>
+        <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <h2 class="section-title serif" data-aos="fade-down" data-aos-duration="1000">Galeri Foto</h2>
         
         <!-- Featured Image -->
-        <div class="featured-image fade-in mb-0">
-            <div class="featured-frame">
-                <img src="../assets/indah_geri/prewedding-indah-geri-6.jpg" alt="Featured Gallery Image">
-                <div class="frame-overlay"></div>
+        <div class="featured-image mb-4" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-6.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-6.jpg" alt="Featured" class="img-fluid">
             </div>
         </div>
 
         <!-- Gallery Grid -->
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Gallery items will be added here via JavaScript -->
+        <div class="gallery-grid">
+            <!-- Gallery Item 0 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-1.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-1.jpg" alt="Gallery 0">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-1.jpg">
+                <img src="../assets/indah_geri/prewedding-geri-1.jpg" alt="Gallery 0">
+            </div>
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-1.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-1.jpg" alt="Gallery 1">
+            </div>
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-2.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-2.jpg" alt="Gallery 2">
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-3.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-3.jpg" alt="Gallery 3">
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="400" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-4.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-4.jpg" alt="Gallery 4">
+            </div>
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="500" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-5.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-5.jpg" alt="Gallery 5">
+            </div>
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-7.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-7.jpg" alt="Gallery 6">
+            </div>
+            <!-- Gallery Item 7 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-8.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-8.jpg" alt="Gallery 7">
+            </div>
+            <!-- Gallery Item 8 -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="800" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="../assets/indah_geri/prewedding-indah-geri-9.jpg">
+                <img src="../assets/indah_geri/prewedding-indah-geri-9.jpg" alt="Gallery 8">
+            </div>
         </div>
 
-        <!-- Lightbox Modal -->
-        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content bg-transparent">
+        <!-- Modal for Image Preview -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
                     <div class="modal-body p-0">
+                        <button type="button" class="modal-close-btn" data-bs-dismiss="modal">
+                            <i class="bi bi-x"></i>
+                        </button>
                         <div class="modal-image-container">
-                            <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <img src="" class="img-fluid" id="modalImage" alt="Gallery Image">
+                            <img src="" class="img-fluid" alt="Gallery Preview">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <style>
-    /* Gallery Section Styles */
-    #galeri {
-        background: rgba(26, 26, 26, 0.6);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        position: relative;
-        z-index: 1;
-    }
-
-    #galeri .section-bg {
-        position: absolute;
-        inset: 0;
-        background: #fff;
-        z-index: -1;
-    }
-
-    #galeri h2 {
-        color: #d4c4a5;
-        margin-bottom: 2rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Featured Image Styles */
-    .featured-image {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    .featured-frame {
-        position: relative;
-        width: 100%;
-        height: 70vh;
-        overflow: hidden;
-        border: 1px solid rgba(212, 196, 165, 0.3);
-        background: #1a1a1a;
-        transition: all 0.5s ease;
-        border-radius: 0.5rem;
-    }
-
-    .featured-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.8s ease;
-    }
-
-    .featured-frame:hover img {
-        transform: scale(1.05);
-    }
-
-    .frame-overlay {
-        position: absolute;
-        inset: 0;
-       
-        background: rgba(26, 26, 26, 0.2);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .featured-frame:hover .frame-overlay {
-        opacity: 1;
-    }
-
-    /* Gallery Grid Styles */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 0.75rem;
-        padding: 0.5rem;
-        margin-top: 0.5rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 3/4;
-        cursor: pointer;
-        border: 1px solid rgba(212, 196, 165, 0.3);
-        background: #1a1a1a;
-        transition: all 0.5s ease;
-        border-radius: 0.5rem;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-        transform: scale(1.1);
-    }
-
-    .gallery-item::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(26, 26, 26, 0.4);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .gallery-item:hover::after {
-        opacity: 1;
-    }
-
-    /* Fade In Animation */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-        .featured-frame {
-            height: 50vh;
-        }
-
-        .gallery-grid {
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 0.5rem;
-            padding: 0.25rem;
-        }
-
-        .featured-image {
-            padding: 0.25rem;
-        }
-    }
-    </style>
 
     <!-- Section 5: Detail Acara -->
     <section id="acara" class="container py-5 position-relative">
@@ -2217,57 +2214,242 @@
             <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
                 <use href="#minang-corner"/>
             </svg>
-            <h2 class="serif">Detail Acara</h2>
+            <h2 class="serif text-center mb-5" data-aos="fade-down" data-aos-duration="1000">Detail Acara</h2>
             <div class="row text-center mb-4">
                 <div class="col-md-6 mb-4">
-                    <div class="event-card">
-                        <h5 class="gold serif mb-3">Akad Nikah</h5>
+                    <div class="event-card" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="event-icon-wrapper">
+                            <i class="bi bi-heart-fill event-icon"></i>
+                        </div>
+                        <h5 class="gold serif mb-4">Akad Nikah</h5>
                         <div class="event-details">
-                            <p class="mb-2">
-                                <i class="bi bi-calendar-heart gold"></i><br>
-                                Kamis, 26 Juni 2025
-                            </p>
-                            <p class="mb-2">
-                                <i class="bi bi-clock gold"></i><br>
-                                08:00 WIB
-                            </p>
-                            <p class="mb-0">
-                                <i class="bi bi-geo-alt gold"></i><br>
-                                Mesjid Nurul Amin<br>
-                                Pagaruyung
-                            </p>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-calendar-heart gold"></i>
+                                <div class="detail-text">
+                                    <strong>Kamis</strong><br>
+                                    26 Juni 2025
+                                </div>
+                            </div>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-clock gold"></i>
+                                <div class="detail-text">
+                                    <strong>Pukul</strong><br>
+                                    08:00 WIB
+                                </div>
+                            </div>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="bi bi-geo-alt gold"></i>
+                                <div class="detail-text">
+                                    <strong>Mesjid Nurul Amin</strong><br>
+                                    Pagaruyung
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <div class="event-card">
-                        <h5 class="gold serif mb-3">Resepsi</h5>
+                    <div class="event-card" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="event-icon-wrapper">
+                            <i class="bi bi-gift-fill event-icon"></i>
+                        </div>
+                        <h5 class="gold serif mb-4">Resepsi</h5>
                         <div class="event-details">
-                            <p class="mb-2">
-                                <i class="bi bi-calendar-heart gold"></i><br>
-                                Kamis, 26 Juni 2025
-                            </p>
-                            <p class="mb-2">
-                                <i class="bi bi-clock gold"></i><br>
-                                10:00 WIB s/d Selesai
-                            </p>
-                            <p class="mb-0">
-                                <i class="bi bi-geo-alt gold"></i><br>
-                                Komplek Perumahan PIP<br>
-                                Jorong Saruaso Barat, Nagari Saruaso<br>
-                                Kecamatan Tanjung Emas<br>
-                                Kabupaten Tanah Datar
-                            </p>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-calendar-heart gold"></i>
+                                <div class="detail-text">
+                                    <strong>Kamis</strong><br>
+                                    26 Juni 2025
+                                </div>
+                            </div>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-clock gold"></i>
+                                <div class="detail-text">
+                                    <strong>Pukul</strong><br>
+                                    10:00 WIB s/d Selesai
+                                </div>
+                            </div>
+                            <div class="detail-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="bi bi-geo-alt gold"></i>
+                                <div class="detail-text">
+                                    <strong>Komplek Perumahan PIP</strong><br>
+                                    Jorong Saruaso Barat, Nagari Saruaso<br>
+                                    Kecamatan Tanjung Emas<br>
+                                    Kabupaten Tanah Datar
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" class="btn btn-light" target="_blank">
-                    <i class="bi bi-geo-alt-fill"></i> Lihat Lokasi di Google Maps
+            <div class="text-center" data-aos="zoom-in" data-aos-delay="800">
+                <a href="https://maps.app.goo.gl/vuiP9VbM42p7cbU17" class="btn btn-maps" target="_blank">
+                    <i class="bi bi-geo-alt-fill me-2"></i> Lihat Lokasi di Google Maps
                 </a>
             </div>
         </div>
+
+        <style>
+            .event-card {
+                background: rgba(26, 26, 26, 0.6);
+                border: 1px solid rgba(212, 196, 165, 0.2);
+                border-radius: 1rem;
+                padding: 2.5rem 2rem;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .event-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, 
+                    rgba(212,196,165,0.05) 0%,
+                    rgba(212,196,165,0.02) 50%,
+                    rgba(212,196,165,0.05) 100%);
+                z-index: 0;
+                transition: all 0.4s ease;
+            }
+
+            .event-card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(212, 196, 165, 0.4);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+
+            .event-card:hover::before {
+                opacity: 0.8;
+                background: linear-gradient(45deg, 
+                    rgba(212,196,165,0.08) 0%,
+                    rgba(212,196,165,0.04) 50%,
+                    rgba(212,196,165,0.08) 100%);
+            }
+
+            .event-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #d4c4a5, #c4b495);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.5rem;
+                position: relative;
+                z-index: 1;
+            }
+
+            .event-icon {
+                font-size: 1.8rem;
+                color: #1a1a1a;
+            }
+
+            .detail-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
+                position: relative;
+                z-index: 1;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease;
+            }
+
+            .detail-item:hover {
+                background: rgba(212, 196, 165, 0.1);
+            }
+
+            .detail-item i {
+                font-size: 2rem;
+                margin-right: 1rem;
+                min-width: 40px;
+                transition: transform 0.3s ease;
+            }
+
+            .detail-item:hover i {
+                transform: scale(1.1);
+            }
+
+            .detail-text {
+                text-align: left;
+                line-height: 1.6;
+            }
+
+            .detail-text strong {
+                color: #d4c4a5;
+                font-size: 1.1rem;
+                display: block;
+                margin-bottom: 0.2rem;
+            }
+
+            .btn-maps {
+                background: linear-gradient(135deg, #d4c4a5, #c4b495);
+                color: #1a1a1a;
+                border: none;
+                padding: 0.8rem 2rem;
+                border-radius: 2rem;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-maps::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, 
+                    rgba(255,255,255,0.1),
+                    rgba(255,255,255,0));
+                transform: translateX(-100%);
+                transition: transform 0.6s ease;
+            }
+
+            .btn-maps:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(212, 196, 165, 0.3);
+                color: #1a1a1a;
+            }
+
+            .btn-maps:hover::before {
+                transform: translateX(100%);
+            }
+
+            @media (max-width: 768px) {
+                .event-card {
+                    padding: 2rem 1.5rem;
+                }
+
+                .event-icon-wrapper {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .event-icon {
+                    font-size: 1.5rem;
+                }
+
+                .detail-item {
+                    margin-bottom: 1.2rem;
+                }
+
+                .detail-item i {
+                    font-size: 1.8rem;
+                    margin-right: 0.8rem;
+                }
+
+                .detail-text strong {
+                    font-size: 1rem;
+                }
+            }
+        </style>
     </section>
 
     <!-- Section 6: RSVP -->
@@ -2443,184 +2625,103 @@
         }, 1000);
     </script>
 
-    <!-- Gallery -->
     <script>
-    // Gallery initialization
-    document.addEventListener('DOMContentLoaded', function() {
-        // Pastikan elemen ada sebelum menjalankan kode
-        const galleryGrid = document.getElementById('galleryGrid');
-        if (!galleryGrid) {
-            console.error('Gallery grid element not found');
-            return;
+
+        // Buku Tamu Dummy Interaksi (Tanpa Backend)
+        document.getElementById('guestbookForm').onsubmit = function(e){
+            e.preventDefault();
+            const name = this[0].value;
+            const message = this[1].value;
+            if(name && message) {
+                const list = document.getElementById('guestbookList');
+                const entry = document.createElement('div');
+                entry.className = 'p-2 mb-2 border-gold rounded';
+                entry.innerHTML = `<strong class="gold">${name}</strong><br><span>${message}</span>`;
+                list.prepend(entry);
+                this.reset();
+            }
+        };
+
+        // Copy rekening ke clipboard
+        function copyRek() {
+            const norek = document.getElementById('norek').textContent;
+            navigator.clipboard.writeText(norek).then(function() {
+                const notif = document.getElementById('copyNotif');
+                notif.style.display = 'block';
+                setTimeout(() => {
+                    notif.style.display = 'none';
+                }, 2000);
+            });
         }
 
-        const modalEl = document.getElementById('galleryModal');
-        const modalImage = document.getElementById('modalImage');
-        
-        // Inisialisasi modal menggunakan Bootstrap
-        const galleryModal = new bootstrap.Modal(modalEl, {
-            backdrop: 'static',
-            keyboard: true
-        });
+        // Profile Background Slideshow
+        function initSlideshow(slideshowId) {
+            const slideshow = document.getElementById(slideshowId);
+            const slides = slideshow.getElementsByClassName('profile-bg-slide');
+            let currentSlide = 0;
 
-        // Event listener untuk menutup modal saat mengklik di luar gambar
-        modalEl.addEventListener('click', function(e) {
-            // Jika yang diklik adalah modal (background) atau tombol close
-            if (e.target === modalEl || e.target.closest('.modal-close-btn')) {
-                galleryModal.hide();
-            }
-        });
-
-        // Event listener untuk tombol ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalEl.classList.contains('show')) {
-                galleryModal.hide();
-            }
-        });
-
-        const galleryImages = [
-            '../assets/indah_geri/prewedding-indah-1.jpg',
-            '../assets/indah_geri/prewedding-geri-1.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-1.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-2.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-3.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-4.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-5.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-7.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-8.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-9.jpg',
-            '../assets/indah_geri/prewedding-indah-geri-10.jpg'
-        ];
-
-        try {
-            // Create and append gallery items
-            galleryImages.forEach((imgSrc, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item fade-in';
-                item.style.animationDelay = `${index * 0.2}s`;
-                
-                const img = document.createElement('img');
-                img.src = imgSrc;
-                img.alt = `Gallery Image ${index + 1}`;
-                item.appendChild(img);
-                
-                // Add click event for modal
-                item.addEventListener('click', () => {
-                    modalImage.src = imgSrc;
-                    galleryModal.show();
-                });
-                
-                galleryGrid.appendChild(item);
-            });
-
-            // Add click event for featured image
-            const featuredFrame = document.querySelector('.featured-frame');
-            if (featuredFrame) {
-                featuredFrame.addEventListener('click', () => {
-                    modalImage.src = '../assets/indah_geri/prewedding-indah-geri-6.jpg';
-                    galleryModal.show();
-                });
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
             }
 
-            // Intersection Observer for fade-in animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            // Observe all gallery items and featured image
-            document.querySelectorAll('.fade-in').forEach(item => {
-                observer.observe(item);
-            });
-        } catch (error) {
-            console.error('Error initializing gallery:', error);
+            // Change slide every 10 seconds
+            setInterval(nextSlide, 10000);
         }
-    });
 
-    // Buku Tamu Dummy Interaksi (Tanpa Backend)
-    document.getElementById('guestbookForm').onsubmit = function(e){
-        e.preventDefault();
-        const name = this[0].value;
-        const message = this[1].value;
-        if(name && message) {
-            const list = document.getElementById('guestbookList');
-            const entry = document.createElement('div');
-            entry.className = 'p-2 mb-2 border-gold rounded';
-            entry.innerHTML = `<strong class="gold">${name}</strong><br><span>${message}</span>`;
-            list.prepend(entry);
-            this.reset();
-        }
-    };
-
-    // Copy rekening ke clipboard
-    function copyRek() {
-        const norek = document.getElementById('norek').textContent;
-        navigator.clipboard.writeText(norek).then(function() {
-            const notif = document.getElementById('copyNotif');
-            notif.style.display = 'block';
-            setTimeout(() => {
-                notif.style.display = 'none';
-            }, 2000);
+        // Initialize slideshows for both profiles
+        window.addEventListener('load', () => {
+            initSlideshow('slideshow-wanita');
+            initSlideshow('slideshow-pria');
         });
-    }
 
-    // Profile Background Slideshow
-    function initSlideshow(slideshowId) {
-        const slideshow = document.getElementById(slideshowId);
-        const slides = slideshow.getElementsByClassName('profile-bg-slide');
-        let currentSlide = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            const musicButton = document.getElementById('musicButton');
+            const bgMusic = document.getElementById('bgMusic');
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+            musicButton.addEventListener('click', function () {
+                if (bgMusic.paused) {
+                    bgMusic.play().catch(err => {
+                        console.log("Autoplay gagal:", err);
+                    });
+                    musicButton.classList.add('playing');
+                } else {
+                    bgMusic.pause();
+                    musicButton.classList.remove('playing');
+                }
+            });
 
-        // Change slide every 10 seconds
-        setInterval(nextSlide, 10000);
-    }
-
-    // Initialize slideshows for both profiles
-    window.addEventListener('load', () => {
-        initSlideshow('slideshow-wanita');
-        initSlideshow('slideshow-pria');
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const musicButton = document.getElementById('musicButton');
-        const bgMusic = document.getElementById('bgMusic');
-
-        musicButton.addEventListener('click', function () {
-            if (bgMusic.paused) {
-                bgMusic.play().catch(err => {
+            // Jangan tampilkan tombol music sebelum undangan dibuka
+            musicButton.style.display = 'none';
+            document.getElementById('bukaUndangan').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('save-the-date').scrollIntoView({ behavior: 'smooth' });
+                musicButton.style.display = 'flex';
+                // Play music saat undangan dibuka
+                const audio = document.getElementById('bgMusic');
+                audio.play().catch(err => {
                     console.log("Autoplay gagal:", err);
                 });
                 musicButton.classList.add('playing');
-            } else {
-                bgMusic.pause();
-                musicButton.classList.remove('playing');
-            }
-        });
-
-        // Jangan tampilkan tombol music sebelum undangan dibuka
-        musicButton.style.display = 'none';
-        document.getElementById('bukaUndangan').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('save-the-date').scrollIntoView({ behavior: 'smooth' });
-            musicButton.style.display = 'flex';
-            // Play music saat undangan dibuka
-            const audio = document.getElementById('bgMusic');
-            audio.play().catch(err => {
-                console.log("Autoplay gagal:", err);
             });
-            musicButton.classList.add('playing');
         });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Existing scripts...
+
+        // Gallery Modal Image Update
+        const imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const imgSrc = button.getAttribute('data-img');
+                const modalImg = this.querySelector('.modal-image-container img');
+                modalImg.src = imgSrc;
+            });
+        }
     });
     </script>
 </body>
