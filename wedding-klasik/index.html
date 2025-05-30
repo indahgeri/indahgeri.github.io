@@ -285,16 +285,16 @@
 
         /* Background Patterns */
         .cover-bg {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background: linear-gradient(
-            to bottom,
-            rgba(26, 26, 26, 0.3) 0%,
-            rgba(26, 26, 26, 0.5) 50%,
-            rgba(26, 26, 26, 0.8) 100%
-        );
-        pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.9) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.9) 100%);
+            z-index: 2;
         }
 
         /* Background Images */
@@ -535,12 +535,12 @@
 
         /* Section Background Adjustments */
         .section-bg {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
-        opacity: 0.4;
-        filter: brightness(0.8) contrast(1.1);
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
+            opacity: 0.4;
+            filter: brightness(0.8) contrast(1.1);
         }
 
         /* Profile Section Styles */
@@ -1128,12 +1128,10 @@
         }
 
         .cover-bg {
-            background: linear-gradient(
-                to bottom,
-                rgba(26, 26, 26, 0.4) 0%,
-                rgba(26, 26, 26, 0.1) 50%,
-                rgba(26, 26, 26, 0.4) 100%
-            );
+            background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.9) 100%);
             position: absolute;
             inset: 0;
             z-index: 2;
@@ -1216,11 +1214,23 @@
 
         /* Save The Date Section Styles */
         #save-the-date {
-            background: #000;
             overflow: hidden;
         }
 
-        #save-the-date .section-bg {
+        .save-the-date-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.1) 60%, 
+                rgba(0, 0, 0) 100%
+            ), url('../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat fixed;
+            opacity: 0.4;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        #save-the-date .save-the-date-bg {
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -1469,7 +1479,7 @@
 
         /* Zoom Animation for Background */
         .animate-zoom {
-            animation: zoomInBackground 20s ease-out forwards;
+            animation: zoomInBackground 10s ease-out forwards;
             transform-origin: center center;
         }
 
@@ -1733,7 +1743,7 @@
     <!-- Section Cover -->
     <section id="cover">
         <div class="bg-coverfoto"></div>
-        <div class="cover-bg"></div>
+        <!-- <div class="cover-bg"></div> -->
         
         <div class="title-corner">
             <!-- <h1 class="serif gold">The Wedding Of</h1> -->
@@ -1753,14 +1763,10 @@
 
     <!-- Section: Save The Date -->
     <section id="save-the-date" class="position-relative min-vh-100">
-        <div class="section-bg animate-zoom" style="background: linear-gradient(to bottom, 
-            rgba(71, 39, 35, 0) 0%,
-            rgba(89, 47, 44, 0.3) 60%, 
-            rgba(41, 25, 22, 0.7) 100%
-        ), url('../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat;"></div>
+        <div class="save-the-date-bg animate-zoom"></div>
         
         <!-- Corner Title -->
-        <div class="position-absolute start-0 top-3 p-4" style="z-index: 2;">
+        <div class="position-absolute start-0 top-0 p-4" style="z-index: 2;">
             <p class="text-uppercase mb-1" style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.9;" data-aos="fade-down" data-aos-duration="1000">The Wedding Of</p>
             <h2 class="display-4 serif gold mb-2" data-aos="fade-up" data-aos-duration="2000">Indah &<br> Geri</h2>
             <p class="mb-4" data-aos="fade-up" data-aos-duration="2000">Minggu, 26 Juni 2025</p>
@@ -1789,16 +1795,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="position-absolute bottom-0 w-100" style="
-            height: 33vh;
-            background: linear-gradient(to bottom,
-                rgba(41, 25, 22, 0) 0%,
-                rgba(41, 25, 22, 1) 100%
-            );
-            pointer-events: none;
-            z-index: 1;
-        "></div>
     </section>
 
     <!-- Section 1: Profil Mempelai Wanita -->
