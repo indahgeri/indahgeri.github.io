@@ -299,25 +299,25 @@
 
         /* Background Images */
         .bg-mempelai {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
-        opacity: 0.4;
-        filter: brightness(0.8) contrast(1.1);
-        border-radius: 0;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
+            opacity: 0.4;
+            filter: brightness(0.8) contrast(1.1);
+            border-radius: 0;
         }
 
         .bg-coverfoto {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
-        opacity: 0.6;
-        filter: brightness(0.85) contrast(1.1);
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
+            opacity: 0.8;
+            filter: brightness(0.85) contrast(1.1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Section Z-index Management */
@@ -476,22 +476,22 @@
         }
 
         .timeline-content h5 {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-        font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Great Vibes', cursive;
         }
 
         .timeline-content .gold-light {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-        display: block;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .timeline-content p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 0;
-        color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         @media (max-width: 768px) {
@@ -539,8 +539,8 @@
             inset: 0;
             z-index: 0;
             background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
-            opacity: 0.4;
-            filter: brightness(0.8) contrast(1.1);
+            opacity: 0.6;
+            /* filter: brightness(0.8) contrast(1.1); */
         }
 
         /* Profile Section Styles */
@@ -1226,7 +1226,7 @@
                 rgba(0, 0, 0, 0.1) 60%, 
                 rgba(0, 0, 0) 100%
             ), url('../assets/indah_geri/prewedding-indah-geri-10.jpg') center/cover no-repeat fixed;
-            opacity: 0.4;
+            opacity: 0.8;
             filter: brightness(0.8) contrast(1.1);
         }
 
@@ -1724,6 +1724,110 @@
 
         .btn-close-white {
             filter: brightness(0) invert(1);
+        }
+
+        #details, #gallery, #gifts, #rsvp {
+            background: rgba(26, 26, 26, 0.85);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            color: #d4c4a5;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .event-card h3, .event-card h4 {
+            color: #d4c4a5;
+        }
+
+        .event-card p, .event-card .event-details {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .countdown-section {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(212, 196, 165, 0.25);
+        }
+
+        .countdown-amount {
+            color: #d4c4a5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-period {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .map-container {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+        }
+
+        .btn-primary {
+            background: rgba(212, 196, 165, 0.9);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            color: #1a1a1a;
+            text-shadow: none;
+        }
+
+        .btn-primary:hover {
+            background: rgba(212, 196, 165, 1);
+            border-color: rgba(212, 196, 165, 0.5);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(212, 196, 165, 0.5);
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Gallery Section */
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+        }
+
+        /* Gift Section */
+        .gift-card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+        }
+
+        .gift-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(212, 196, 165, 0.5);
+        }
+
+        /* RSVP Section */
+        .rsvp-form {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .event-card, .gift-card, .rsvp-form {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
     </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -2376,11 +2480,13 @@
         /* Fix untuk Safari */
         @supports (-webkit-touch-callout: none) {
             .timeline-content {
-                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px); /* standar */
+                -webkit-backdrop-filter: blur(10px); /* Safari */
             }
 
             .story-img {
-                -webkit-transform: translateZ(0);
+                transform: translateZ(0); /* standar */
+                -webkit-transform: translateZ(0); /* Safari */
             }
         }
 
