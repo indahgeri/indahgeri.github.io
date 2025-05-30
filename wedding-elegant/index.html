@@ -13,15 +13,15 @@
   <!-- Google Fonts (Serif & Mewah) -->
   <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
-    body {
-        font-family: 'Segoe UI', sans-serif;
-    }
-    html, body {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-</style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
+      body {
+          font-family: 'Segoe UI', sans-serif;
+      }
+      html, body {
+          max-width: 100vw;
+          overflow-x: hidden;
+      }
+  </style>
   <style>
     /* Base styles */
     body {
@@ -407,199 +407,155 @@
 
     /* Timeline Styles */
     .timeline {
-      padding: 20px 0;
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #ffd700, transparent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.3;
     }
 
     .timeline-item {
       position: relative;
+      margin-bottom: 4rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ffd700;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      z-index: 2;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background: #ffd700;
+      top: 50%;
+      opacity: 0.3;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: 50%;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: 50%;
+    }
+
+    .timeline-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .timeline-image img {
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      max-height: 400px;
-      object-fit: cover;
       width: 100%;
-    }
-
-    .timeline-image:hover img {
-      transform: scale(1.02);
-      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .timeline-content {
-      padding: 20px;
+      padding: 2rem;
       background: rgba(17, 17, 17, 0.5);
       border-radius: 15px;
       border: 1px solid rgba(255, 215, 0, 0.2);
       backdrop-filter: blur(5px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .timeline-content:hover {
       transform: translateY(-5px);
       border-color: rgba(255, 215, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
     }
 
-    .gold-light {
-      color: rgba(255, 215, 0, 0.7);
+    .timeline-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+    }
+
+    .timeline-image:hover img {
+      transform: scale(1.1);
+    }
+
+    .timeline-content h5 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .timeline-content .gold-light {
       font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .timeline-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     @media (max-width: 768px) {
+      .timeline::before {
+        left: 0;
+      }
+
+      .timeline-item::before {
+        left: 0;
+      }
+
+      .timeline-item::after {
+        display: none;
+      }
+
       .timeline-content {
-        text-align: center !important;
-        margin-top: 10px;
-        padding: 15px;
+        text-align: left !important;
+        margin-top: 1rem;
+        padding: 1.5rem;
       }
 
       .timeline-item {
-        margin-bottom: 2rem !important;
+        margin-bottom: 3rem;
       }
 
       .timeline-image img {
-        max-height: 250px;
+        height: 250px;
         border-radius: 10px;
       }
 
-      .timeline-content p {
-        font-size: 0.9rem;
-        margin-bottom: 0;
-      }
-
       .timeline-content h5 {
-        font-size: 1.1rem;
-      }
-
-      .timeline-content h6 {
-        font-size: 0.8rem;
-      }
-
-      .section-title {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
       }
 
-      .minimal-card {
-        padding: 1.5rem;
+      .timeline-content p {
+        font-size: 0.95rem;
       }
     }
 
     /* Story Slider Styles */
-    .story-slider {
-      width: 100%;
-      padding: 20px 0;
-    }
-
-    .story-slide {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      position: relative;
-      border-radius: 15px;
-    }
-
-    .story-slide-image {
-      width: 100%;
-      height: 350px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .story-slide-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to bottom, 
-        rgba(0,0,0,0.1) 0%,
-        rgba(0,0,0,0.3) 50%,
-        rgba(0,0,0,0.7) 100%
-      );
-      z-index: 1;
-    }
-
-    .story-slide-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .story-slide-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 30px 20px;
-      z-index: 2;
-      background: linear-gradient(to top, 
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.5) 70%,
-        rgba(0, 0, 0, 0.2) 100%
-      );
-    }
-
-    .story-slide-content h5 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .story-slide-content h6 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .story-slide-content p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .story-slide.swiper-slide-active {
-      border-color: rgba(255, 215, 0, 0.6);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-    }
-
-    .story-slide.swiper-slide-active .story-slide-image img {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .story-slide-image {
-        height: 280px;
-      }
-
-      .story-slide-content {
-        padding: 20px 15px;
-      }
-
-      .story-slide-content h5 {
-        font-size: 1.5rem;
-      }
-
-      .story-slide-content h6 {
-        font-size: 0.9rem;
-      }
-
-      .story-slide-content p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-
-      #story .minimal-card {
-        padding: 1rem;
-      }
-    }
 
     /* Section Background Adjustments */
     .section-bg {
@@ -609,10 +565,6 @@
       background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
       opacity: 0.4;
       filter: brightness(0.8) contrast(1.1);
-    }
-
-    #story .minimal-card {
-      background: rgba(16, 16, 16, 0.5);
     }
 
     /* Profile Section Styles */
@@ -1017,16 +969,6 @@
     }
 
     /* Story Section Adjustments */
-    #story .swiper {
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .story-slider {
-      width: 100%;
-      overflow: hidden;
-    }
 
     /* Gallery Section Adjustments */
     #galeri .swiper {
@@ -1427,83 +1369,70 @@
     <svg class="bg-ornament ornament-topright" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <svg class="bg-ornament ornament-bottomleft" viewBox="0 0 100 100"><path d="M81,7 Q89,39 55,59 Q36,69 32,92 Q12,67 28,37 Q39,18 61,8 Z"/></svg>
     <div class="minimal-card">
-      <div class="minang-border" style="pointer-events: none;"></div>
-      <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
-        <use href="#minang-corner"/>
-      </svg>
-      <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
-        <use href="#minang-corner"/>
-      </svg>
-      <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
-        <use href="#minang-corner"/>
-      </svg>
-      <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
-        <use href="#minang-corner"/>
-      </svg>
-      <h2 class="serif">Our Story</h2>
-      <!-- Swiper -->
-      <div class="swiper story-slider">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="story-slide">
-              <div class="story-slide-image">
-                <img src="../../assets/indah_geri/prewedding-indah-geri-1.jpg" alt="First Meet">
-              </div>
-              <div class="story-slide-content">
-                <h5 class="gold serif">Awal Bertemu</h5>
-                <h6 class="gold-light">2018</h6>
-                <p>Tidak sengaja salah masuk grup jurusan di bangku perkuliahan. Dari situ sama sama notice karna ada kesalahan, dan akhirnya berlanjut ke chat pribadi.</p>
-              </div>
+        <div class="minang-border" style="pointer-events: none;"></div>
+        <svg class="minang-ornament-svg top-left" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg top-right" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-left" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <svg class="minang-ornament-svg bottom-right" viewBox="0 0 100 100">
+            <use href="#minang-corner"/>
+        </svg>
+        <h2 class="serif text-center mb-5">Our Story</h2>
+        
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item row mb-5">
+                <div class="col-md-6 timeline-image">
+                    <img src="../assets/indah_geri/prewedding-indah-geri-1.jpg" alt="First Meet" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-md-6 timeline-content text-md-start text-center">
+                    <h5 class="gold serif">Awal Bertemu</h5>
+                    <h6 class="gold-light">2018</h6>
+                    <p>Tidak sengaja salah masuk grup jurusan di bangku perkuliahan. Dari situ sama sama notice karna ada kesalahan, dan akhirnya berlanjut ke chat pribadi.</p>
+                </div>
             </div>
-          </div>
 
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="story-slide">
-              <div class="story-slide-image">
-                <img src="../../assets/indah_geri/prewedding-indah-geri-3.jpg" alt="Dating">
-              </div>
-              <div class="story-slide-content">
-                <h5 class="gold serif">Menjalin Hubungan</h5>
-                <h6 class="gold-light">26 Oktober 2018</h6>
-                <p>Setelah mengenal dan merasa cocok satu sama lain, kami memulai menjalin hubungan dengan penuh komitmen.</p>
-              </div>
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item row mb-5">
+                <div class="col-md-6 timeline-content text-md-end text-center order-md-1 order-2">
+                    <h5 class="gold serif">Menjalin Hubungan</h5>
+                    <h6 class="gold-light">26 Oktober 2018</h6>
+                    <p>Setelah mengenal dan merasa cocok satu sama lain, kami memulai menjalin hubungan dengan penuh komitmen.</p>
+                </div>
+                <div class="col-md-6 timeline-image order-md-2 order-1">
+                    <img src="../assets/indah_geri/prewedding-indah-geri-3.jpg" alt="Dating" class="img-fluid rounded-3 shadow">
+                </div>
             </div>
-          </div>
 
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="story-slide">
-              <div class="story-slide-image">
-                <img src="../../assets/indah_geri/prewedding-indah-geri-5.jpg" alt="Engagement">
-              </div>
-              <div class="story-slide-content">
-                <h5 class="gold serif">Lamaran</h5>
-                <h6 class="gold-light">16 Maret 2025</h6>
-                <p>Dirasa sudah cukup lama mengenal dan memahami satu sama lain. Akhirnya kami memutuskan hubungan yang lebih serius dan melangsungkan lamaran.</p>
-              </div>
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item row mb-5">
+                <div class="col-md-6 timeline-image">
+                    <img src="../assets/indah_geri/prewedding-indah-geri-5.jpg" alt="Engagement" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-md-6 timeline-content text-md-start text-center">
+                    <h5 class="gold serif">Lamaran</h5>
+                    <h6 class="gold-light">16 Maret 2025</h6>
+                    <p>Dirasa sudah cukup lama mengenal dan memahami satu sama lain. Akhirnya kami memutuskan hubungan yang lebih serius dan melangsungkan lamaran.</p>
+                </div>
             </div>
-          </div>
 
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="story-slide">
-              <div class="story-slide-image">
-                <img src="../../assets/indah_geri/prewedding-indah-geri-7.jpg" alt="Wedding">
-              </div>
-              <div class="story-slide-content">
-                <h5 class="gold serif">Menuju Pernikahan</h5>
-                <h6 class="gold-light">26 Juni 2025</h6>
-                <p>Kini kami siap melangkah ke jenjang pernikahan dengan restu keluarga tercinta.</p>
-              </div>
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item row">
+                <div class="col-md-6 timeline-content text-md-end text-center order-md-1 order-2">
+                    <h5 class="gold serif">Menuju Pernikahan</h5>
+                    <h6 class="gold-light">26 Juni 2025</h6>
+                    <p>Kini kami siap melangkah ke jenjang pernikahan dengan restu keluarga tercinta.</p>
+                </div>
+                <div class="col-md-6 timeline-image order-md-2 order-1">
+                    <img src="../assets/indah_geri/prewedding-indah-geri-7.jpg" alt="Wedding" class="img-fluid rounded-3 shadow">
+                </div>
             </div>
-          </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
     </div>
   </section>
 
@@ -1799,35 +1728,7 @@
     });
 
     // Initialize Story Slider
-    var storySwiper = new Swiper(".story-slider", {
-      effect: "cards",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      speed: 800,
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 1,
-          effect: "fade",
-          fadeEffect: {
-            crossFade: true
-          }
-        }
-      }
-    });
+    
 
     // Buku Tamu Dummy Interaksi (Tanpa Backend)
     document.getElementById('guestbookForm').onsubmit = function(e){
