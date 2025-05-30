@@ -1829,6 +1829,245 @@
                 background: rgba(255, 255, 255, 0.15);
             }
         }
+
+        .quote-wrapper {
+            margin: 4rem auto 2rem;
+            position: relative;
+            max-width: 900px;
+            padding: 0 1rem;
+        }
+
+        .quote-classic {
+            position: relative;
+            background: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            border: 1px solid rgba(212, 196, 165, 0.3);
+            border-radius: 20px;
+            padding: 3.5rem 2.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .quote-classic::before,
+        .quote-classic::after {
+            content: '"';
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: rgba(212, 196, 165, 0.5);
+            position: absolute;
+            line-height: 1;
+        }
+
+        .quote-classic::before {
+            top: 20px;
+            left: 25px;
+        }
+
+        .quote-classic::after {
+            bottom: 0;
+            right: 25px;
+            transform: rotate(180deg);
+        }
+
+        .quote-text {
+            font-family: 'Montserrat', serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            padding: 0 1.5rem;
+        }
+
+        .quote-source {
+            font-family: 'Montserrat', serif;
+            font-size: 1rem;
+            color: rgba(212, 196, 165, 0.8);
+            letter-spacing: 2px;
+            position: relative;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .quote-source::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 196, 165, 0.5),
+                rgba(212, 196, 165, 0.5),
+                transparent
+            );
+        }
+
+        .quote-ornament {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4c4a5' d='M50 0c-3 25-25 47-50 50 25 3 47 25 50 50 3-25 25-47 50-50-25-3-47-25-50-50z' opacity='0.3'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+        }
+
+        .quote-ornament.top-left {
+            top: -20px;
+            left: -20px;
+            transform: rotate(-45deg);
+        }
+
+        .quote-ornament.top-right {
+            top: -20px;
+            right: -20px;
+            transform: rotate(45deg);
+        }
+
+        .quote-ornament.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            transform: rotate(-135deg);
+        }
+
+        .quote-ornament.bottom-right {
+            bottom: -20px;
+            right: -20px;
+            transform: rotate(135deg);
+        }
+
+        @media (max-width: 768px) {
+            .quote-classic {
+                padding: 3rem 1.5rem;
+                margin: 1.5rem auto;
+            }
+
+            .quote-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .quote-classic::before,
+            .quote-classic::after {
+                font-size: 3rem;
+            }
+
+            .quote-classic::before {
+                top: 15px;
+                left: 15px;
+            }
+
+            .quote-classic::after {
+                bottom: -5px;
+                right: 15px;
+            }
+
+            .quote-ornament {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .quote-classic {
+                padding: 2.5rem 1.2rem;
+            }
+
+            .quote-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .quote-source {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            .quote-classic::before,
+            .quote-classic::after {
+                font-size: 2.5rem;
+            }
+
+            .quote-ornament {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .quote-text {
+            font-family: 'Montserrat', serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            padding: 0 1.5rem;
+        }
+
+        .quote-source {
+            font-family: 'Montserrat', serif;
+            font-size: 1rem;
+            color: rgba(212, 196, 165, 0.8);
+            letter-spacing: 2px;
+            position: relative;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .quote-source::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 196, 165, 0.5),
+                rgba(212, 196, 165, 0.5),
+                transparent
+            );
+        }
+
+        @media (max-width: 768px) {
+            .quote-text {
+                font-size: 1.2rem;
+                line-height: 1.7;
+                padding: 0 1rem;
+                margin: 1.5rem auto;
+            }
+
+            .quote-source {
+                font-size: 1.6rem;
+                margin-top: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .quote-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                padding: 0 0.8rem;
+                margin: 1.2rem auto;
+                letter-spacing: 0.3px;
+            }
+
+            .quote-source {
+                font-size: 1.4rem;
+                margin-top: 1rem;
+            }
+        }
     </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -2155,11 +2394,16 @@
             </div>
 
             <!-- Tambahan Quote dengan Desain Klasik -->
-            <div class="quote-wrapper text-center" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="quote-wrapper text-center" data-aos="fade-up" data-aos-duration="1500">
                 <div class="quote-classic">
                     <div class="quote-ornament top"></div>
                     <p class="quote-text">
-                        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                        "Dan di antara tanda-tanda kebesaran-Nya ialah
+                        Dia menciptakan pasangan-pasangan untukmu
+                        dari jenismu sendiri,
+                        agar kamu cenderung dan merasa tenteram kepadanya,
+                        dan Dia menjadikan di antaramu
+                        rasa kasih dan sayang."
                     </p>
                     <p class="quote-source">
                         (QS. Ar-Rum: 21)
@@ -3530,7 +3774,7 @@
             }
 
             .quote-text {
-                font-size: 1.4rem;
+                font-size: 1rem;
                 line-height: 1.6;
             }
 
