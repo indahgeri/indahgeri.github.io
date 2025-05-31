@@ -535,12 +535,22 @@
 
         /* Section Background Adjustments */
         .section-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat fixed;
-            opacity: 0.6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: url('../assets/indah_geri/prewedding-indah-geri-6.jpg') center/cover no-repeat;
+            opacity: 0.5;
+            pointer-events: none; /* agar tidak mengganggu klik elemen lain */
             /* filter: brightness(0.8) contrast(1.1); */
+        }
+        /* Untuk iPhone atau layar kecil, hapus fixed */
+        @media screen and (max-width: 767px) {
+            .section-bg {
+                background-attachment: scroll; /* atau hapus "fixed" */
+            }
         }
 
         /* Profile Section Styles */
@@ -2070,6 +2080,7 @@
         }
     </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/story.css">
 </head>
 <body>
     <!-- Minang Corner Ornament SVG Definition -->
@@ -2224,71 +2235,16 @@
         </div>
     </section>
 
+    <!-- kenangan -->
+    <!-- <section id="kenangan" class="container py-5 profile-section"> -->
+    <!-- <section id="kenangan" class="container py-5 position-relative">
+        <div class="profile-bg-slideshow" id="slideshow-wanitaX">
+            <div class="profile-bg-slide active" style="background-image: url('../assets/indah_geri/prewedding-indah-geri-6.jpg')"></div>
+        </div>
+    </section> -->
+    
     <!-- Section 3: Our Story -->
     <section id="story" class="container py-5 position-relative">
-        <style>
-            .content-inner {
-                display: flex;
-                gap: 2rem;
-                align-items: flex-start;
-            }
-
-            .timeline-image {
-                flex: 0 0 200px;
-                position: relative;
-                margin-bottom: 1.5rem;
-            }
-
-            .timeline-text {
-                flex: 1;
-            }
-
-            .timeline-text h3 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-                font-family: 'Great Vibes', cursive;
-                color: #d4c4a5;
-            }
-
-            @media (max-width: 992px) {
-                .content-inner {
-                    flex-direction: column;
-                    gap: 2.5rem;
-                    align-items: center;
-                }
-
-                .timeline-image {
-                    flex: 0 0 100%;
-                    margin-bottom: 0;
-                }
-
-                .timeline-text h3 {
-                    margin-top: 0.5rem;
-                    font-size: 1.8rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .content-inner {
-                    gap: 2rem;
-                }
-
-                .timeline-text h3 {
-                    font-size: 1.6rem;
-                }
-            }
-
-            @media (max-width: 576px) {
-                .content-inner {
-                    gap: 1.8rem;
-                }
-
-                .timeline-text h3 {
-                    font-size: 1.5rem;
-                    margin-top: 0.3rem;
-                }
-            }
-        </style>
         <div class="section-bg"></div>
         <!-- Ornamen Klasik -->
         <div class="classic-ornament top-left"></div>
@@ -2413,334 +2369,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-        /* Story Section Styles */
-        #story {
-            background: rgba(26, 26, 26, 0.95);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-container {
-            position: relative;
-            z-index: 2;
-            padding: 2rem 0;
-        }
-
-        /* Classic Ornaments */
-        .classic-ornament {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4c4a5' d='M50 0c-3 25-25 47-50 50 25 3 47 25 50 50 3-25 25-47 50-50-25-3-47-25-50-50z' opacity='0.15'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-            pointer-events: none;
-            opacity: 0.1;
-            transition: all 0.5s ease;
-        }
-
-        .classic-ornament.top-left {
-            top: 0;
-            left: 0;
-            transform: rotate(-45deg);
-        }
-
-        .classic-ornament.top-right {
-            top: 0;
-            right: 0;
-            transform: rotate(45deg);
-        }
-
-        .classic-ornament.bottom-left {
-            bottom: 0;
-            left: 0;
-            transform: rotate(-135deg);
-        }
-
-        .classic-ornament.bottom-right {
-            bottom: 0;
-            right: 0;
-            transform: rotate(135deg);
-        }
-
-        /* Story Title */
-        .story-title {
-            font-size: 3rem;
-            color: #d4c4a5;
-            margin-bottom: 4rem;
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .title-decoration {
-            font-size: 2rem;
-            margin: 0 1rem;
-            opacity: 0.8;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        /* Timeline Classic Style */
-        .timeline-classic {
-            position: relative;
-            padding: 2rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline-classic::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background: rgba(212, 196, 165, 0.3);
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item-classic {
-            position: relative;
-            margin-bottom: 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .timeline-content-wrapper {
-            width: 45%;
-            position: relative;
-            background: rgba(26, 26, 26, 0.6);
-            border: 1px solid rgba(212, 196, 165, 0.2);
-            border-radius: 10px;
-            padding: 1.5rem;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .timeline-item-classic:nth-child(odd) .timeline-content-wrapper {
-            text-align: right;
-        }
-
-        .timeline-item-classic:nth-child(even) .timeline-content-wrapper {
-            margin-left: auto;
-            text-align: left;
-        }
-
-        .timeline-dot {
-            width: 12px;
-            height: 12px;
-            background: #d4c4a5;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .timeline-date {
-            position: absolute;
-            top: -15px;
-            width: auto;
-            padding: 0.5rem 1.2rem;
-            background: rgba(26, 26, 26, 0.85);
-            border: 1px solid rgba(212, 196, 165, 0.2);
-            border-radius: 50px;
-            transform: translateY(-50%);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 3;
-        }
-
-        .timeline-item-classic:nth-child(odd) .timeline-date {
-            right: -160px;
-        }
-
-        .timeline-item-classic:nth-child(even) .timeline-date {
-            left: -160px;
-        }
-
-        @media (max-width: 992px) {
-            .timeline-item-classic {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                margin-bottom: 4rem;
-            }
-
-            .timeline-classic::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .timeline-content-wrapper {
-                width: 90%;
-                margin: 0 auto !important;
-                text-align: center;
-                padding: 1.5rem;
-            }
-
-            .timeline-date {
-                position: relative;
-                top: -10px;
-                left: 0 !important;
-                right: 0 !important;
-                margin: 0 auto 2rem auto;
-                transform: none;
-                display: inline-flex;
-            }
-
-            .timeline-dot {
-                width: 10px;
-                height: 10px;
-                top: 25px;
-            }
-
-            .content-inner {
-                flex-direction: column !important;
-                gap: 1.5rem;
-            }
-
-            .timeline-image {
-                flex: 0 0 100%;
-            }
-
-            .timeline-text {
-                text-align: center !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .timeline-classic {
-                padding: 1rem 0;
-            }
-
-            .timeline-content-wrapper {
-                width: 95%;
-                padding: 1.2rem;
-            }
-
-            .timeline-item-classic {
-                margin-bottom: 3.5rem;
-            }
-
-            .timeline-dot {
-                width: 8px;
-                height: 8px;
-                top: 20px;
-            }
-
-            .timeline-date {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem;
-            }
-
-            .story-img {
-                height: 220px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .timeline-classic::before {
-                width: 1px;
-            }
-
-            .timeline-content-wrapper {
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .timeline-item-classic {
-                margin-bottom: 3rem;
-            }
-
-            .timeline-date {
-                font-size: 0.85rem;
-                padding: 0.35rem 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .story-img {
-                height: 200px;
-            }
-
-            .timeline-text h3 {
-                font-size: 1.5rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .timeline-text p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .timeline-content-wrapper {
-                padding: 0.8rem;
-            }
-
-            .timeline-date {
-                font-size: 0.8rem;
-                padding: 0.3rem 0.8rem;
-            }
-
-            .story-img {
-                height: 180px;
-            }
-
-            .timeline-text h3 {
-                font-size: 1.3rem;
-            }
-
-            .timeline-text p {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Tambahan untuk Optimasi Performa */
-        @media (prefers-reduced-motion: reduce) {
-            .timeline-dot,
-            .title-decoration {
-                animation: none;
-            }
-
-            .timeline-content,
-            .image-frame,
-            .story-img {
-                transition: none;
-            }
-        }
-
-        /* Fix untuk Safari */
-        @supports (-webkit-touch-callout: none) {
-            .timeline-content {
-                backdrop-filter: blur(10px); /* standar */
-                -webkit-backdrop-filter: blur(10px); /* Safari */
-            }
-
-            .story-img {
-                transform: translateZ(0); /* standar */
-                -webkit-transform: translateZ(0); /* Safari */
-            }
-        }
-
-        /* Fix untuk Firefox */
-        @-moz-document url-prefix() {
-            .timeline-content {
-                background: rgba(26, 26, 26, 0.8);
-            }
-        }
-    </style>
 
     <!-- Section 4: Galeri -->
     <section id="galeri" class="container py-5">
