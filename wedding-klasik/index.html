@@ -1903,12 +1903,12 @@
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: max(25px, env(safe-area-inset-bottom, 25px));
+            right: 15px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(212, 196, 165, 0.9);
+            background: rgba(212, 196, 165, 0.95);
             border: 2px solid #d4c4a5;
             color: #1a1a1a;
             font-size: 1.2rem;
@@ -1916,7 +1916,7 @@
             display: none;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             z-index: 1000;
             opacity: 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -1924,9 +1924,19 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             user-select: none;
-            /* Fix untuk iOS safe area */
-            padding: env(safe-area-inset-bottom);
-            margin-bottom: env(safe-area-inset-bottom);
+            touch-action: manipulation;
+            /* Memperbesar area tap tanpa mengubah ukuran visual */
+            padding: 0;
+        }
+
+        .back-to-top::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            z-index: -1;
         }
 
         .back-to-top:hover,
@@ -1950,36 +1960,13 @@
             -webkit-animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @-webkit-keyframes fadeIn {
-            from {
-                opacity: 0;
-                -webkit-transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-            }
-        }
-
-        /* Penyesuaian untuk perangkat mobile */
         @media (max-width: 768px) {
             .back-to-top {
-                width: 44px; /* Ukuran yang lebih mudah di tap */
-                height: 44px;
+                width: 40px; /* Ukuran yang lebih kecil untuk mobile */
+                height: 40px;
                 font-size: 1rem;
-                bottom: max(20px, env(safe-area-inset-bottom));
-                right: 20px;
+                bottom: max(20px, env(safe-area-inset-bottom, 20px));
+                right: 12px;
             }
         }
 
@@ -1987,7 +1974,7 @@
         @supports (padding: max(0px)) {
             .back-to-top {
                 padding-bottom: max(0px, env(safe-area-inset-bottom));
-                bottom: max(30px, env(safe-area-inset-bottom));
+                bottom: max(25px, env(safe-area-inset-bottom));
             }
         }
 
@@ -3797,80 +3784,61 @@
             // Inisialisasi elemen
             const backToTopButton = document.getElementById('backToTop');
             const autoScrollControl = document.getElementById('autoScrollControl');
+            const musicButton = document.getElementById('musicButton');
+            const bgMusic = document.getElementById('bgMusic');
             
-            // Variabel kontrol
+            // Variabel kontrol scroll
+            let touchStartY = 0;
+            let touchEndY = 0;
+            let isScrolling = false;
             let isAutoScrolling = false;
+            let scrollTimeout;
             let autoScrollInterval;
             const SCROLL_STEP = 1;
             const SCROLL_INTERVAL = 20;
-            let touchStartTime = 0;
-            let touchStartX = 0;
-            let touchStartY = 0;
-            const TOUCH_TIMEOUT = 300; // ms
-            const TOUCH_DISTANCE = 10; // pixels
-            let lastTouchY = 0;
-            let isTouching = false;
-            let scrollTimeout;
 
-            // Touch event handlers dengan perbaikan
-            document.addEventListener('touchstart', (e) => {
-                touchStartTime = Date.now();
-                touchStartX = e.touches[0].clientX;
-                touchStartY = e.touches[0].clientY;
-                isTouching = true;
-                lastTouchY = e.touches[0].clientY;
-            }, { passive: true });
+            // Variabel kontrol musik
+            let isMusicPlaying = false;
 
-            document.addEventListener('touchend', (e) => {
-                const touchEndTime = Date.now();
-                const touchDuration = touchEndTime - touchStartTime;
+            // Fungsi untuk mengontrol musik
+            function toggleMusic(e) {
+                e && e.stopPropagation(); // Mencegah event bubble
                 
-                // Only stop auto-scroll if it's a long touch
-                if (touchDuration > TOUCH_TIMEOUT) {
-                    if (isAutoScrolling) stopAutoScroll();
-                }
-                
-                isTouching = false;
-            }, { passive: true });
-
-            // Improved click handler for better mobile support
-            autoScrollControl.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Add delay to prevent accidental double-taps
-                if (!this.hasAttribute('data-processing')) {
-                    this.setAttribute('data-processing', 'true');
-                    
-                    if (isAutoScrolling) {
-                        stopAutoScroll();
-                    } else {
-                        startAutoScroll();
-                    }
-                    
-                    setTimeout(() => {
-                        this.removeAttribute('data-processing');
-                    }, 300);
-                }
-            });
-
-            // Fungsi untuk menangani scroll
-            function handleScroll() {
-                if (isTouching) return;
-                
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const clientHeight = document.documentElement.clientHeight;
-                
-                if (scrollTop > clientHeight * 0.3) {
-                    backToTopButton.classList.add('show');
-                    autoScrollControl.classList.add('show');
+                if (bgMusic.paused) {
+                    bgMusic.play().then(() => {
+                        isMusicPlaying = true;
+                        musicButton.classList.add('playing');
+                    }).catch(err => {
+                        console.log("Autoplay gagal:", err);
+                    });
                 } else {
-                    backToTopButton.classList.remove('show');
-                    autoScrollControl.classList.remove('show');
+                    bgMusic.pause();
+                    isMusicPlaying = false;
+                    musicButton.classList.remove('playing');
                 }
             }
 
-            // Auto Scroll functionality dengan peningkatan performa
+            // Event listener untuk musik
+            musicButton.addEventListener('click', toggleMusic);
+            musicButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                toggleMusic(e);
+            }, { passive: false });
+
+            // Fungsi untuk scroll ke atas
+            function scrollToTop() {
+                if (isScrolling) return;
+                isScrolling = true;
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000);
+            }
+
+            // Fungsi untuk auto scroll
             function startAutoScroll() {
                 if (!isAutoScrolling) {
                     isAutoScrolling = true;
@@ -3880,8 +3848,6 @@
                     let scrollDistance = 0;
 
                     autoScrollInterval = setInterval(() => {
-                        if (isTouching) return;
-
                         const currentTime = performance.now();
                         const deltaTime = currentTime - lastTime;
                         lastTime = currentTime;
@@ -3915,25 +3881,143 @@
                 }
             }
 
-            // Event listeners
-            window.addEventListener('scroll', () => {
-                if (!scrollTimeout) {
-                    scrollTimeout = setTimeout(() => {
-                        handleScroll();
-                        scrollTimeout = null;
-                    }, 100);
+            // Event handlers untuk auto scroll button
+            let touchStartTime = 0;
+            
+            autoScrollControl.addEventListener('touchstart', (e) => {
+                e.stopPropagation(); // Mencegah event bubble
+                touchStartTime = Date.now();
+                e.preventDefault();
+            }, { passive: false });
+
+            autoScrollControl.addEventListener('touchend', (e) => {
+                e.stopPropagation(); // Mencegah event bubble
+                const touchDuration = Date.now() - touchStartTime;
+                if (touchDuration < 300) {
+                    e.preventDefault();
+                    toggleAutoScroll(e);
                 }
+            }, { passive: false });
+
+            autoScrollControl.addEventListener('click', function(e) {
+                e.stopPropagation(); // Mencegah event bubble
+                e.preventDefault();
+                toggleAutoScroll(e);
+            });
+
+            function toggleAutoScroll(e) {
+                e && e.stopPropagation(); // Mencegah event bubble
+                
+                if (!autoScrollControl.hasAttribute('data-processing')) {
+                    autoScrollControl.setAttribute('data-processing', 'true');
+                    
+                    if (isAutoScrolling) {
+                        stopAutoScroll();
+                    } else {
+                        startAutoScroll();
+                    }
+                    
+                    setTimeout(() => {
+                        autoScrollControl.removeAttribute('data-processing');
+                    }, 300);
+                }
+            }
+
+            // Event handlers untuk back to top button
+            backToTopButton.addEventListener('touchstart', (e) => {
+                e.stopPropagation(); // Mencegah event bubble
+                touchStartY = e.touches[0].clientY;
+                e.preventDefault();
+            }, { passive: false });
+
+            backToTopButton.addEventListener('touchend', (e) => {
+                e.stopPropagation(); // Mencegah event bubble
+                touchEndY = e.changedTouches[0].clientY;
+                const touchDiff = touchEndY - touchStartY;
+                
+                if (Math.abs(touchDiff) < 10) {
+                    scrollToTop();
+                }
+                e.preventDefault();
+            }, { passive: false });
+
+            backToTopButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // Mencegah event bubble
+                e.preventDefault();
+                scrollToTop();
+            });
+
+            // Menangani scroll event dengan throttling
+            window.addEventListener('scroll', () => {
+                if (scrollTimeout) {
+                    window.cancelAnimationFrame(scrollTimeout);
+                }
+
+                scrollTimeout = window.requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > window.innerHeight * 0.3) {
+                        backToTopButton.classList.add('show');
+                        autoScrollControl.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                        autoScrollControl.classList.remove('show');
+                    }
+                });
             }, { passive: true });
 
-            // Visibility change handler
+            // Handle page visibility change
             document.addEventListener('visibilitychange', () => {
-                if (document.hidden && isAutoScrolling) {
-                    stopAutoScroll();
+                if (document.hidden) {
+                    if (isAutoScrolling) stopAutoScroll();
+                    if (isScrolling) isScrolling = false;
                 }
             });
 
-            // Initial scroll check
-            handleScroll();
+            // Handle touch events untuk menghentikan auto scroll
+            document.addEventListener('touchstart', (e) => {
+                // Jangan hentikan auto-scroll jika touch event berasal dari tombol kontrol
+                if (e.target.closest('#musicButton') || 
+                    e.target.closest('#autoScrollControl') || 
+                    e.target.closest('#backToTop')) {
+                    return;
+                }
+                
+                if (isAutoScrolling) {
+                    stopAutoScroll();
+                }
+            }, { passive: true });
+
+            // Inisialisasi tampilan tombol
+            const initialScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (initialScroll > window.innerHeight * 0.3) {
+                backToTopButton.classList.add('show');
+                autoScrollControl.classList.add('show');
+            }
+
+            // Event untuk membuka undangan
+            document.getElementById('bukaUndangan').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('save-the-date').scrollIntoView({ behavior: 'smooth' });
+                musicButton.style.display = 'flex';
+                
+                // Play music saat undangan dibuka
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicButton.classList.add('playing');
+                }).catch(err => {
+                    console.log("Autoplay gagal:", err);
+                });
+                
+                // Tampilkan tombol auto scroll
+                autoScrollControl.classList.add('show');
+                
+                // Mulai auto scroll setelah 3 detik
+                setTimeout(() => {
+                    if (!isAutoScrolling) {
+                        toggleAutoScroll();
+                    }
+                }, 3000);
+            });
         });
     </script>
 </body>
