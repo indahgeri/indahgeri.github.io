@@ -3954,12 +3954,40 @@
 
                 scrollTimeout = window.requestAnimationFrame(() => {
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    if (scrollTop > window.innerHeight * 0.3) {
+                    const footer = document.querySelector('footer');
+                    const footerTop = footer.offsetTop;
+                    const scrollPosition = window.scrollY + window.innerHeight;
+                    const documentHeight = Math.max(
+                        document.body.scrollHeight,
+                        document.body.offsetHeight,
+                        document.documentElement.clientHeight,
+                        document.documentElement.scrollHeight,
+                        document.documentElement.offsetHeight
+                    );
+                    // Muncul setelah scroll 60% dari tinggi konten
+                    const scrollThreshold = documentHeight * 0.4;
+
+                    // Tampilkan/sembunyikan tombol back-to-top berdasarkan scroll position
+                    if (scrollPosition > scrollThreshold) {
                         backToTopButton.classList.add('show');
-                        autoScrollControl.classList.add('show');
                     } else {
                         backToTopButton.classList.remove('show');
+                    }
+
+                    // Tampilkan auto scroll control setelah undangan dibuka
+                    if (scrollTop > window.innerHeight * 0.3) {
+                        autoScrollControl.classList.add('show');
+                    } else {
                         autoScrollControl.classList.remove('show');
+                    }
+
+                    // Sesuaikan posisi tombol saat mendekati footer
+                    const footerDistance = footerTop - scrollPosition;
+                    if (footerDistance < 100) {
+                        const newBottom = Math.abs(footerDistance - 0);
+                        backToTopButton.style.bottom = `${newBottom}px`;
+                    } else {
+                        backToTopButton.style.bottom = 'max(20px, env(safe-area-inset-bottom))';
                     }
                 });
             }, { passive: true });
