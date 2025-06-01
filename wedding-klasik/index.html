@@ -2038,7 +2038,7 @@
             }
 
             .back-to-top {
-                bottom: max(25px, env(safe-area-inset-bottom));
+                bottom: max(90px, env(safe-area-inset-bottom));
                 right: 15px;
             }
         }
@@ -2066,37 +2066,14 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            bottom: max(30px, env(safe-area-inset-bottom));
-            padding-bottom: max(0px, env(safe-area-inset-bottom));
-        }
-
-        .floating-button:hover,
-        .floating-button:active,
-        .floating-button:focus {
-            background: rgba(212, 196, 165, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            outline: none;
-        }
-
-        .floating-button:active {
-            transform: scale(0.95) !important;
-        }
-
-        .floating-button.show {
-            opacity: 1;
-            visibility: visible;
-            animation: fadeIn 0.3s ease;
-            -webkit-animation: fadeIn 0.3s ease;
+            bottom: max(20px, env(safe-area-inset-bottom));
+            opacity: 0;
+            visibility: hidden;
         }
 
         /* Back to Top Button specific styles */
         .back-to-top {
             right: 20px;
-            transform: translateY(20px);
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
         }
 
         /* Auto Scroll Control specific styles */
@@ -2113,16 +2090,35 @@
             transform: translateX(-50%) scale(0.95);
         }
 
+        .floating-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .floating-button:active {
+            transform: scale(0.95);
+        }
+
+        .floating-button.show {
+            opacity: 1;
+            visibility: visible;
+            animation: fadeIn 0.3s ease;
+            -webkit-animation: fadeIn 0.3s ease;
+        }
+
         @media (max-width: 768px) {
             .floating-button {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
-                bottom: max(20px, env(safe-area-inset-bottom));
             }
             
             .back-to-top {
                 right: 15px;
+            }
+
+            .auto-scroll-control {
+                width: 40px;
+                height: 40px;
             }
         }
 
@@ -3524,7 +3520,7 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
-                bottom: 15px;
+                bottom: 20px;
                 left: 15px;
             }
         }
