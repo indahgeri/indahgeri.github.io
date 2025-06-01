@@ -14,111 +14,116 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- Google Fonts (Serif & Mewah) -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
-        body {
-            font-family: 'Segoe UI', sans-serif;
+        :root {
+            --color-gold: #d4c4a5;
+            --color-dark: #1a1a1a;
+            --color-gold-transparent: rgba(212, 196, 165, 0.3);
+            --gradient-dark: linear-gradient(135deg, 
+                rgba(26, 26, 26, 0.8) 0%,
+                rgba(26, 26, 26, 0.6) 100%
+            );
+            --font-primary: 'Montserrat', serif;
+            --font-decorative: 'Great Vibes', cursive;
         }
-        html, body {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-    </style>
-    <style>
+
         /* Base styles */
         body {
-        background: #1a1a1a;
-        color: #d4c4a5;
-        font-family: 'Montserrat', serif;
-        min-height: 100vh;
-        line-height: 1.6;
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+            background: var(--color-dark);
+            color: var(--color-gold);
+            font-family: var(--font-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            max-width: 100vw;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         /* Typography */
         h1, h2, h3, .serif {
-        font-family: 'Great Vibes', cursive;
-        color: #d4c4a5;
-        letter-spacing: 0.5px;
+            font-family: var(--font-decorative);
+            color: var(--color-gold);
+            letter-spacing: 0.5px;
         }
 
         /* Colors & Utilities */
-        .gold { color: #d4c4a5; }
+        .gold { color: var(--color-gold); }
         .bg-gold {
-        background: #d4c4a5 !important;
-        color: #1a1a1a !important;
+            background: var(--color-gold) !important;
+            color: var(--color-dark) !important;
         }
-        .border-gold { border-color: #d4c4a5 !important; }
+        .border-gold { border-color: var(--color-gold) !important; }
 
         /* Common Section Styles */
         section {
-        position: relative;
-        background: linear-gradient(135deg, 
-            rgba(26, 26, 26, 0.8) 0%,
-            rgba(26, 26, 26, 0.6) 100%
-        );
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        padding: 4rem 0;
-        margin: 0;
+            position: relative;
+            background: var(--gradient-dark);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            padding: 4rem 0;
+            margin: 0;
         }
 
-        section .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-        overflow: hidden;
+        .blur-backdrop {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
+        .z-layered {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Card Styles */
         .minimal-card {
-        border: 1px solid rgba(212, 196, 165, 0.3);
-        border-radius: 0.5rem;
-        background: rgba(26, 26, 26, 0.75);
-        padding: 2.5rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        width: 100%;
+            border: 1px solid var(--color-gold-transparent);
+            border-radius: 0.5rem;
+            background: rgba(26, 26, 26, 0.75);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .minimal-card.blur-backdrop {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .minimal-card > * {
-        position: relative;
-        z-index: 3;
+            position: relative;
+            z-index: 3;
         }
 
         .minang-border {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        opacity: 0.1;
-        pointer-events: none;
-        background-image: 
-            linear-gradient(45deg, transparent 48%, #d4c4a5 49%, #d4c4a5 51%, transparent 52%),
-            linear-gradient(-45deg, transparent 48%, #d4c4a5 49%, #d4c4a5 51%, transparent 52%);
-        background-size: 30px 30px;
-        background-position: center;
-        mask-image: linear-gradient(to bottom, 
-                rgba(0,0,0,1) 0%,
-                rgba(0,0,0,0) 20%,
-                rgba(0,0,0,0) 80%,
-                rgba(0,0,0,1) 100%
-            );
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, var(--color-gold) 49%, var(--color-gold) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, var(--color-gold) 49%, var(--color-gold) 51%, transparent 52%);
+            background-size: 30px 30px;
+            background-position: center;
+            mask-image: linear-gradient(to bottom, 
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgba(0,0,0,1) 100%
+                );
             -webkit-mask-image: linear-gradient(to bottom, 
-                rgba(0,0,0,1) 0%,
-                rgba(0,0,0,0) 20%,
-                rgba(0,0,0,0) 80%,
-                rgba(0,0,0,1) 100%
-            );
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgba(0,0,0,1) 100%
+                );
         }
 
         .minimal-card .btn,
@@ -127,13 +132,13 @@
         .minimal-card input,
         .minimal-card select,
         .minimal-card textarea {
-        position: relative;
-        z-index: 4;
+            position: relative;
+            z-index: 4;
         }
 
         .minang-ornament-svg {
-        z-index: 2;
-        pointer-events: none;
+            z-index: 2;
+            pointer-events: none;
         }
 
         .minang-divider {
@@ -148,89 +153,89 @@
         }
         
         .minimal-card:hover {
-        transform: translateY(-3px);
+            transform: translateY(-3px);
         }
 
         /* Section Titles */
         .section-title {
-        text-align: center;
-        margin-bottom: 2.5rem;
-        letter-spacing: 2px;
-        z-index: 1;
-        position: relative;
-        /* text-transform: uppercase; */
-        font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            z-index: 1;
+            position: relative;
+            /* text-transform: uppercase; */
+            font-size: 2rem;
         }
 
         /* Buttons */
         .btn-gold {
-        background: #d4c4a5;
-        color: #1a1a1a;
-        border: none;
-        font-weight: 600;
-        border-radius: 0.25rem;
-        padding: 0.8rem 2rem;
-        transition: all 0.3s ease;
+            background: var(--color-gold);
+            color: var(--color-dark);
+            border: none;
+            font-weight: 600;
+            border-radius: 0.25rem;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
         }
 
         .btn-gold:hover {
-        background: #c4b495;
-        color: #1a1a1a;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(212, 196, 165, 0.3);
+            background: #c4b495;
+            color: var(--color-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--color-gold-transparent);
         }
 
         /* Form Elements */
         .form-control, .form-select {
-        background: rgba(26, 26, 26, 0.8);
-        color: #d4c4a5;
-        border: 1px solid #d4c4a5;
-        border-radius: 0.25rem;
-        padding: 0.8rem 1rem;
-        transition: all 0.3s ease;
+            background: rgba(26, 26, 26, 0.8);
+            color: var(--color-gold);
+            border: 1px solid var(--color-gold);
+            border-radius: 0.25rem;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus, .form-select:focus {
-        background: rgba(26, 26, 26, 0.9);
-        border-color: #c4b495;
-        box-shadow: 0 0 0 0.2rem rgba(212, 196, 165, 0.25);
+            background: rgba(26, 26, 26, 0.9);
+            border-color: #c4b495;
+            box-shadow: 0 0 0 0.2rem var(--color-gold-transparent);
         }
 
         input, textarea { 
-        color: #d4c4a5 !important; 
+            color: var(--color-gold) !important; 
         }
 
         /* Placeholder Styles */
         ::placeholder {
-        color: #d4c4a5cc !important;    /* gold, agak transparan */
-        opacity: 0.7 !important;        /* lebih transparan */
-        font-weight: 400;
-        letter-spacing: 0.5px;
+            color: var(--color-gold) !important;
+            opacity: 0.7 !important;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
         /* Background Elements */
         .bg-ornament {
-        position: absolute;
-        width: 160px;
-        height: 160px;
-        pointer-events: none;
-        z-index: 0;
-        opacity: 0.2;
-        fill: #d4c4a5;
-        filter: blur(0.5px);
-        transition: opacity 0.3s ease;
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.2;
+            fill: var(--color-gold);
+            filter: blur(0.5px);
+            transition: opacity 0.3s ease;
         }
 
         .ornament-topright {
-        top: -40px; 
-        right: -40px;
-        transform: rotate(10deg);
+            top: -40px; 
+            right: -40px;
+            transform: rotate(10deg);
         }
 
         .ornament-bottomleft {
-        bottom: -40px; 
-        left: -40px;
-        transform: rotate(-25deg) scaleX(-1);
+            bottom: -40px; 
+            left: -40px;
+            transform: rotate(-25deg) scaleX(-1);
         }
 
         /* Background Patterns */
@@ -274,8 +279,8 @@
         section .container, 
         section > .minimal-card, 
         section > div {
-        position: relative;
-        z-index: 3;
+            position: relative;
+            z-index: 3;
         }
 
         /* Animations */
@@ -286,44 +291,65 @@
 
         /* Responsive Adjustments */
         @media (max-width: 576px) {
-        .minimal-card {
-            padding: 1.5rem;
-            border-radius: 1rem;
-        }
+            .minimal-card {
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
 
-        .bg-ornament { 
-            width: 100px; 
-            height: 100px; 
-        }
+            .bg-ornament { 
+                width: 100px; 
+                height: 100px; 
+            }
 
-        .bg-mempelai,
-        #profil {
-            border-radius: 1rem;
-        }
+            .bg-mempelai,
+            #profil {
+                border-radius: 1rem;
+            }
 
-        .section-title {
-            font-size: 1.75rem;
-        }
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .form-control,
+            .form-select {
+                font-size: 0.95rem;
+                padding: 0.7rem 0.9rem;
+            }
+
+            ::placeholder {
+                font-size: 0.95rem;
+                letter-spacing: 0.2px;
+            }
+
+            .btn-gold {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
         }
 
         @media (max-width: 576px) {
-        .form-control,
-        .form-select {
-            font-size: 0.95rem;
-            padding: 0.7rem 0.9rem;
-        }
-        ::placeholder {
-            font-size: 0.95rem;
-            letter-spacing: 0.2px;
-        }
-        .btn-gold {
-            font-size: 1rem;
-            padding: 0.7rem 1.2rem;
-        }
-        .section-title {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
+            .form-control,
+            .form-select {
+                font-size: 0.95rem;
+                padding: 0.7rem 0.9rem;
+            }
+            ::placeholder {
+                font-size: 0.95rem;
+                letter-spacing: 0.2px;
+            }
+            .btn-gold {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
         }
 
         
@@ -1968,7 +1994,7 @@
         /* Auto Scroll Control Button */
         .auto-scroll-control {
             position: fixed;
-            bottom: 30px;
+            bottom: max(80px, env(safe-area-inset-bottom));
             left: 50%;
             transform: translateX(-50%);
             width: 50px;
@@ -1983,16 +2009,25 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            z-index: 1000;
+            z-index: 1001;
             opacity: 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             user-select: none;
-            padding: env(safe-area-inset-bottom);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            touch-action: manipulation;
+            padding: 0;
+        }
+
+        .auto-scroll-control::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            z-index: -1;
         }
 
         .auto-scroll-control.show {
@@ -2002,33 +2037,22 @@
             -webkit-animation: fadeIn 0.3s ease;
         }
 
-        .auto-scroll-control:hover,
-        .auto-scroll-control:active,
-        .auto-scroll-control:focus {
-            background: rgba(212, 196, 165, 1);
-            transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            outline: none;
-        }
-
-        .auto-scroll-control:active {
-            transform: translateX(-50%) scale(0.95);
-        }
-
         @media (max-width: 768px) {
             .auto-scroll-control {
-                width: 44px;
-                height: 44px;
-                font-size: 1rem;
-                bottom: max(20px, env(safe-area-inset-bottom));
+                width: 48px;
+                height: 48px;
+                bottom: max(90px, env(safe-area-inset-bottom));
             }
-        }
 
-        /* Khusus untuk iOS dengan notch */
-        @supports (padding: max(0px)) {
-            .auto-scroll-control {
-                padding-bottom: max(0px, env(safe-area-inset-bottom));
-                bottom: max(30px, env(safe-area-inset-bottom));
+            .floating-button {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+            }
+
+            .back-to-top {
+                bottom: max(25px, env(safe-area-inset-bottom));
+                right: 15px;
             }
         }
 
@@ -3779,8 +3803,56 @@
             let autoScrollInterval;
             const SCROLL_STEP = 1;
             const SCROLL_INTERVAL = 20;
+            let touchStartTime = 0;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            const TOUCH_TIMEOUT = 300; // ms
+            const TOUCH_DISTANCE = 10; // pixels
             let lastTouchY = 0;
             let isTouching = false;
+            let scrollTimeout;
+
+            // Touch event handlers dengan perbaikan
+            document.addEventListener('touchstart', (e) => {
+                touchStartTime = Date.now();
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                isTouching = true;
+                lastTouchY = e.touches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                const touchEndTime = Date.now();
+                const touchDuration = touchEndTime - touchStartTime;
+                
+                // Only stop auto-scroll if it's a long touch
+                if (touchDuration > TOUCH_TIMEOUT) {
+                    if (isAutoScrolling) stopAutoScroll();
+                }
+                
+                isTouching = false;
+            }, { passive: true });
+
+            // Improved click handler for better mobile support
+            autoScrollControl.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Add delay to prevent accidental double-taps
+                if (!this.hasAttribute('data-processing')) {
+                    this.setAttribute('data-processing', 'true');
+                    
+                    if (isAutoScrolling) {
+                        stopAutoScroll();
+                    } else {
+                        startAutoScroll();
+                    }
+                    
+                    setTimeout(() => {
+                        this.removeAttribute('data-processing');
+                    }, 300);
+                }
+            });
 
             // Fungsi untuk menangani scroll
             function handleScroll() {
@@ -3789,7 +3861,6 @@
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 const clientHeight = document.documentElement.clientHeight;
                 
-                // Tampilkan tombol back-to-top saat sudah scroll 30% dari total scroll
                 if (scrollTop > clientHeight * 0.3) {
                     backToTopButton.classList.add('show');
                     autoScrollControl.classList.add('show');
@@ -3798,40 +3869,6 @@
                     autoScrollControl.classList.remove('show');
                 }
             }
-
-            // Throttle scroll event untuk performa
-            let scrollTimeout;
-            window.addEventListener('scroll', () => {
-                if (!scrollTimeout) {
-                    scrollTimeout = setTimeout(() => {
-                        handleScroll();
-                        scrollTimeout = null;
-                    }, 100);
-                }
-            }, { passive: true });
-
-            // Back to Top functionality dengan smooth scroll polyfill
-            function smoothScrollToTop() {
-                const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                if (currentScroll > 0) {
-                    window.requestAnimationFrame(smoothScrollToTop);
-                    window.scrollTo(0, currentScroll - currentScroll / 8);
-                }
-            }
-
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (isAutoScrolling) stopAutoScroll();
-                
-                if ('scrollBehavior' in document.documentElement.style) {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    smoothScrollToTop();
-                }
-            });
 
             // Auto Scroll functionality dengan peningkatan performa
             function startAutoScroll() {
@@ -3878,30 +3915,15 @@
                 }
             }
 
-            // Touch event handlers
-            document.addEventListener('touchstart', (e) => {
-                isTouching = true;
-                lastTouchY = e.touches[0].clientY;
-                if (isAutoScrolling) stopAutoScroll();
-            }, { passive: true });
-
-            document.addEventListener('touchmove', (e) => {
-                lastTouchY = e.touches[0].clientY;
-            }, { passive: true });
-
-            document.addEventListener('touchend', () => {
-                isTouching = false;
-            }, { passive: true });
-
-            // Auto Scroll Control click handler
-            autoScrollControl.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (isAutoScrolling) {
-                    stopAutoScroll();
-                } else {
-                    startAutoScroll();
+            // Event listeners
+            window.addEventListener('scroll', () => {
+                if (!scrollTimeout) {
+                    scrollTimeout = setTimeout(() => {
+                        handleScroll();
+                        scrollTimeout = null;
+                    }, 100);
                 }
-            });
+            }, { passive: true });
 
             // Visibility change handler
             document.addEventListener('visibilitychange', () => {
