@@ -2028,7 +2028,7 @@
             .auto-scroll-control {
                 width: 48px;
                 height: 48px;
-                bottom: max(90px, env(safe-area-inset-bottom));
+                bottom: max(20px, env(safe-area-inset-bottom));
             }
 
             .floating-button {
@@ -2038,7 +2038,7 @@
             }
 
             .back-to-top {
-                bottom: max(90px, env(safe-area-inset-bottom));
+                bottom: max(20px, env(safe-area-inset-bottom));
                 right: 15px;
             }
         }
@@ -2144,6 +2144,110 @@
             to {
                 opacity: 1;
                 -webkit-transform: translateY(0);
+            }
+        }
+
+        /* Mobile Optimization Styles */
+        @media (max-width: 768px) {
+            .floating-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .back-to-top {
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .auto-scroll-control {
+                width: 40px;
+                height: 40px;
+                bottom: max(20px, env(safe-area-inset-bottom));
+            }
+
+            /* Memperbesar area tap untuk semua tombol di mobile */
+            .floating-button::before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                bottom: -10px;
+                left: -10px;
+                z-index: -1;
+            }
+
+            /* Optimasi untuk gesture touch */
+            .floating-button {
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+
+            /* Feedback visual saat di-tap */
+            .floating-button:active {
+                transform: scale(0.95);
+                transition: transform 0.1s;
+            }
+        }
+
+        /* iOS Safe Area Support */
+        @supports (padding: max(0px)) {
+            .floating-button {
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+                bottom: max(20px, env(safe-area-inset-bottom));
+            }
+
+            .auto-scroll-control {
+                bottom: max(20px, env(safe-area-inset-bottom));
+            }
+
+            /* Pastikan konten tidak tertutup notch/home indicator */
+            body {
+                padding-top: max(0px, env(safe-area-inset-top));
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+                padding-left: max(0px, env(safe-area-inset-left));
+                padding-right: max(0px, env(safe-area-inset-right));
+            }
+        }
+
+        /* Prevent Zoom on iOS */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Fix for Mobile Safari Momentum Scrolling */
+        .modal-body {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Improve Touch Target Sizes */
+        @media (max-width: 768px) {
+            .btn,
+            .form-control,
+            select,
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                min-height: 44px;
+                line-height: 44px;
+                padding: 0 12px;
+            }
+
+            /* Perbaikan untuk gallery di mobile */
+            .gallery-item {
+                margin-bottom: 15px;
+            }
+
+            .gallery-item img {
+                border-radius: 8px;
             }
         }
     </style>
@@ -3985,7 +4089,8 @@
                     const footerDistance = footerTop - scrollPosition;
                     if (footerDistance < 100) {
                         const newBottom = Math.abs(footerDistance - 0);
-                        backToTopButton.style.bottom = `${newBottom}px`;
+                        // backToTopButton.style.bottom = `${newBottom}px`;
+                        backToTopButton.style.bottom = `25px`;
                     } else {
                         backToTopButton.style.bottom = 'max(20px, env(safe-area-inset-bottom))';
                     }
