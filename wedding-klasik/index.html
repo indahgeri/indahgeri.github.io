@@ -859,7 +859,7 @@
             box-shadow: 0 0 0 0 rgba(212, 196, 165, 0.07);
             transition: box-shadow 0.3s ease;
             z-index: 9999;
-            opacity: 0.8;
+            opacity: 0.2;
             transition: opacity 0.2s;
         }
 
@@ -2080,10 +2080,13 @@
         .auto-scroll-control {
             left: 50%;
             transform: translateX(-50%);
+            background: rgba(212, 196, 165, 0.3); /* Membuat lebih transparan */
+            border: 1px solid rgba(212, 196, 165, 0.1);
         }
 
         .auto-scroll-control:hover {
             transform: translateX(-50%) translateY(-3px);
+            background: rgba(212, 196, 165, 0.8); /* Sedikit lebih solid saat hover */
         }
 
         .auto-scroll-control:active {
